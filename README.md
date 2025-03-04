@@ -13,6 +13,11 @@ The Group Console creates a group on the first message and then closed the group
 import { createGroupConsole } from 'auto-group-console'
 
 const groupConsole = createGroupConsole({ options })
+
+// All console messages are reflected on groupConsole
+groupConsole.log('Log message')
+groupConsole.warn('Warning message')
+groupConsole.error('Error mesasage')
 ```
 
 
@@ -24,9 +29,14 @@ The Defer Console, outputs all console messages at the end of the current Event 
 import { createDeferConsole } from 'auto-group-console'
 
 const deferConsole = createDeferConsole({ options })
+
+// All console messages are reflected on deferConsole
+deferConsole.log('Log message')
+deferConsole.warn('Warning message')
+deferConsole.error('Error mesasage')
 ```
 
-### Options
+## Options
 
 The following options can be passed to `createGroupConsole` and `createDeferConsole`.
 
@@ -39,12 +49,12 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
 
 When `enabled` is set to false it will suppress all messages to the console.
 
-### API
+## API
 
 ### setEnabled()
 
 ### setLoopEnabled()
 
-#### setTitle()
+### setTitle()
 
-#### setLoopTitle()
+### setLoopTitle()
