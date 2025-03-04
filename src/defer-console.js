@@ -1,15 +1,22 @@
 import { NORMAL } from './consts'
 import { capitalizeFirstLetter, time, wrap } from './utils'
 
-export default function ({ enabled = true, title = 'DeferGroup' }) {
+export default function ({ enabled = true, title = 'Defer Group' }) {
   let logQueue = []
 
   const config = {
     enabled,
     title,
     loopEnabled: false,
-    loopTitle,
+    loopTitle: undefined,
   }
+
+  const wrapConfig = (key) => [
+    `set${capitalizeFirstLetter(key)}`,
+    (value) => {
+      config[key] = value
+    },
+  ]
 
   function reset() {
     config.loopTitle = undefined
@@ -23,10 +30,6 @@ export default function ({ enabled = true, title = 'DeferGroup' }) {
     console?.groupEnd()
     reset()
   }
-
-  const wrapConfig = (key) => [`set${capitalizeFirstLetter(key)}`, (value) => {
-      config[key] = value
-  }]
 
   const wrapConsole = (key) => [key, (...msg) => {
     if (!config.enabled && !config.loopEnabled) return true
