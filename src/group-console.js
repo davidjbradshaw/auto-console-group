@@ -2,7 +2,7 @@ import { NORMAL } from './consts'
 import { time } from './utils'
 
 export default function (initialConfig) {
-  const logQueue = []
+  let active = false
 
   const config = {
     enabled: true,
@@ -10,14 +10,20 @@ export default function (initialConfig) {
     ...initialConfig,
   }
 
-  function logGroup() {
+  function groupEnd() {
+    console?.groupEnd()
+    active = false
+  }
+
+  function group() {
+    active = true
     console?.group(`${config.id} %c${time()}`, NORMAL)
-    queueMicrotask(() => console?.groupEnd())
+    queueMicrotask(groupEnd)
   }
 
   const wrapConsole = (type) => (...msg) => {
-    if (!config.enabled) return
-    if (logQueue.length === 0) logGroup()
+    if (!config.enabled) return true
+    if (!active) group()
     return console[type](...msg)
   }
 

@@ -18,9 +18,10 @@ export default function (initialConfig) {
   }
 
   const wrapConsole = (type) => (...msg) => {
-    if (!config.enabled) return
+    if (!config.enabled) return true
     if (logQueue.length === 0) queueMicrotask(logGroup)
     logQueue.push([type, ...msg])
+    return true
   }
 
   return {
