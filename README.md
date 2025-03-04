@@ -14,7 +14,7 @@ import { createGroupConsole } from 'auto-group-console'
 
 const groupConsole = createGroupConsole({ options })
 
-// All console messages are reflected on groupConsole
+// All console methods are reflected on groupConsole
 groupConsole.log('Log message')
 groupConsole.warn('Warning message')
 groupConsole.error('Error mesasage')
@@ -30,7 +30,7 @@ import { createDeferConsole } from 'auto-group-console'
 
 const deferConsole = createDeferConsole({ options })
 
-// All console messages are reflected on deferConsole
+// All console methods are reflected on deferConsole
 deferConsole.log('Log message')
 deferConsole.warn('Warning message')
 deferConsole.error('Error mesasage')
