@@ -63,11 +63,11 @@ Turn console logging on and off for just the current loop.
 
 ### setTitle(<span style="font-weight: normal">title</span>)
 
-Set the group title. If this is called after a message call then the title will only update on the next event loop.
+Set the group title. If this is called after a message call when using `groupConsole`, then the title will only update on the next event loop.
 
 ### setLoopTitle(<span style="font-weight: normal">title</span>)
 
-Set the group title just for the current loop. For 'groupConsole', this has to be set before the first message call. With `deferConsole` it can be set anytime within the current event loop.
+Set the group title just for the current loop. For `groupConsole`, this has to be set before the first message call. With `deferConsole` it can be set anytime within the current event loop.
 
 --
 _&copy; 2025 David J. Bradshaw_ 
