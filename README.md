@@ -69,5 +69,5 @@ Set the group title. If this is called after a message call when using `groupCon
 
 Set the group title just for the current loop. For `groupConsole`, this has to be set before the first message call. With `deferConsole` it can be set anytime within the current event loop.
 
---
+---
 _&copy; 2025 David J. Bradshaw_ 
