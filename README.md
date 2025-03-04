@@ -17,7 +17,7 @@ const groupConsole = createGroupConsole({ options })
 // All console methods are reflected on groupConsole
 groupConsole.log('Log message')
 groupConsole.warn('Warning message')
-groupConsole.error('Error mesasage')
+groupConsole.error('Error message')
 ```
 
 
@@ -33,7 +33,7 @@ const deferConsole = createDeferConsole({ options })
 // All console methods are reflected on deferConsole
 deferConsole.log('Log message')
 deferConsole.warn('Warning message')
-deferConsole.error('Error mesasage')
+deferConsole.error('Error message')
 ```
 
 ## Options
@@ -51,10 +51,23 @@ When `enabled` is set to false it will suppress all messages to the console.
 
 ## API
 
-### setEnabled()
+In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/Web/API/console), the following methods are also available.
 
-### setLoopEnabled()
+### setEnabled(<span style="font-weight: normal">true/false</span>)
 
-### setTitle()
+Turn console logging on and off.
 
-### setLoopTitle()
+### setLoopEnabled(<span style="font-weight: normal">true/false</span>)
+
+Turn console logging on and off for just the current loop.
+
+### setTitle(<span style="font-weight: normal">title</span>)
+
+Set the group title. If this is called after a message call then the title will only update on the next event loop.
+
+### setLoopTitle(<span style="font-weight: normal">title</span>)
+
+Set the group title just for the current loop. For 'groupConsole', this has to be set before the first message call. With `deferConsole` it can be set anytime within the current event loop.
+
+--
+_&copy; 2025 David J. Bradshaw_ 
