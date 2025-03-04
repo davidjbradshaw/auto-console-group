@@ -1,2 +1,2 @@
-export { default as deferConsole } from './defer-console'
-export { default as groupConsole } from './group-console'
+export { default as createDeferConsole } from './defer-console'
+export { default as createGroupConsole } from './group-console'

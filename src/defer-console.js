@@ -1,31 +1,42 @@
 import { NORMAL } from './consts'
-import { time } from './utils'
+import { capitalizeFirstLetter, time, wrap } from './utils'
 
-export default function (initialConfig) {
+export default function ({ enabled = true, title = 'DeferGroup' }) {
   let logQueue = []
 
   const config = {
-    enabled: true,
-    title: '',
-    ...initialConfig,
+    enabled,
+    title,
+    loopEnabled: false,
+    loopTitle,
+  }
+
+  function reset() {
+    config.loopTitle = undefined
+    config.loopEnabled = !!config.loopEnabled
+    logQueue = []
   }
 
   function logGroup() {
-    console?.group(`${config.id} %c${time()}`, NORMAL)
-    logQueue.forEach(([type, ...msg]) => console[type](...msg))
-    logQueue = []
+    console?.group(`${config.loopTitle || config.title} %c${time()}`, NORMAL)
+    logQueue.forEach(([key, ...msg]) => console[key](...msg))
     console?.groupEnd()
+    reset()
   }
 
-  const wrapConsole = (type) => (...msg) => {
-    if (!config.enabled) return true
+  const wrapConfig = (key) => [`set${capitalizeFirstLetter(key)}`, (value) => {
+      config[key] = value
+  }]
+
+  const wrapConsole = (key) => [key, (...msg) => {
+    if (!config.enabled && !config.loopEnabled) return true
     if (logQueue.length === 0) queueMicrotask(logGroup)
-    logQueue.push([type, ...msg])
+    logQueue.push([key, ...msg])
     return true
-  }
+  }]
 
   return {
-    config,
-    ...Object.keys(console).map(wrapConsole),
+    ...wrap(config, wrapConfig),
+    ...wrap(console, wrapConsole),
   }
 }
