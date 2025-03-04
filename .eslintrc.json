@@ -1,0 +1,9 @@
+{
+  "extends": ["auto"],
+  "rules": {
+    "func-names": "off",
+    "no-console": "off",
+    "semi": ["error", "never"],
+    "unicorn/no-array-callback-reference": "off"
+  }
+}
