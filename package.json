@@ -1,6 +1,6 @@
 {
   "name": "auto-group-console",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Automagically group console messages",
   "main": "src/index.js",
   "scripts": {
