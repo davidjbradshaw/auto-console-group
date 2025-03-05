@@ -3,7 +3,18 @@
 ## Intoduction
 This is a simple library to group console messages automatically by [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop) frames. This is useful in JavaScript applications that have a lot of event triggers, as it allows you to group console output by triggering action. It works by creating a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to close the console group at the end of the current Event Loop.
 
-The library provedes two modes of operation, `groupConsole` and `deferConsole`. They both provide the same interface and are interchangable. The defered version can be useful in production builds, as processing the console messages in the microtasks removes any stack traces that you might not want to make publically available.
+
+### Install
+
+This library can be install from NPM.
+
+```sh
+npm install auto-group-console
+```
+
+## Usage
+
+The library provides two modes of operation, `groupConsole` and `deferConsole`, They both provide the same interface and are interchangeable. The `groupConsole` version outputs logs in real time and creates a microtask to end the console group. Whereas the `deferConsole` version, stores all console messages and outputs everything through the microtask after the main task has completed. The deferred approach has several tradeoffs, it allows you to set the group heading after the first log message and suppresses stack traces, which might be useful on public sites. However, it also prevents console timers giving accurate results.
 
 ### Group Console
 
@@ -16,7 +27,7 @@ const groupConsole = createGroupConsole({ options })
 
 // All console methods are reflected on groupConsole
 groupConsole.log('Log message')
-groupConsole.time('Timer')
+groupConsole.table(['foo', 'bar'])
 groupConsole.count('Counter')
 ```
 
@@ -51,7 +62,7 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
 
 When `enabled` is set to false it will suppress all messages to the console.
 
-## API
+## Methods
 
 In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/Web/API/console), the following methods are also available.
 
