@@ -14,7 +14,9 @@ npm install auto-group-console
 
 ## Usage
 
-The library provides two modes of operation, `groupConsole` and `deferConsole`, They both provide the same interface and are interchangeable. The `groupConsole` version outputs logs in real time and creates a microtask to end the console group. Whereas the `deferConsole` version, stores all console messages and outputs everything through the microtask after the main task has completed. The deferred approach has several tradeoffs, it allows you to set the group heading after the first log message and suppresses stack traces, which might be useful on public sites. However, it also prevents console timers giving accurate results.
+The library provides two modes of operation, `groupConsole` and `deferConsole`, They both provide the same interface and are interchangeable. The `groupConsole` version outputs logs in real time and creates a microtask to end the console group. Whereas the `deferConsole` version, stores all console messages and outputs everything through the microtask after the main task has completed. 
+
+The deferred approach has several tradeoffs, it allows you to set the group heading after the first log message and suppresses stack traces, which might be useful on public sites. However, it also prevents console timers giving accurate results.
 
 ### Group Console
 
