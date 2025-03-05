@@ -3,7 +3,10 @@
   "rules": {
     "func-names": "off",
     "no-console": "off",
+    "no-restricted-syntax": "off",
+    "no-param-reassign": "off",
     "semi": ["error", "never"],
+    "import/prefer-default-export": "off",
     "unicorn/no-array-callback-reference": "off"
   }
 }

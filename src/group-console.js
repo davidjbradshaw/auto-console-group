@@ -1,44 +1,38 @@
 import { NORMAL } from './consts'
-import { capitalizeFirstLetter, time, wrap } from './utils'
+import { defaultConfig } from './defaults'
+import { setValue, time, wrap } from './utils'
 
 export default function ({ enabled = true, title = 'Auto Group' }) {
   let active = false
 
   const config = {
+    ...defaultConfig,
     enabled,
     title,
-    loopEnabled: false,
-    loopTitle: undefined,
   }
-
-  const wrapConfig = (key) => [
-    `set${capitalizeFirstLetter(key)}`,
-    (value) => {
-      config[key] = value
-    },
-  ]
 
   function groupEnd() {
     active = false
     config.loopTitle = undefined
-    config.loopEnabled = !!config.loopEnabled
+    config.loopEnabled = config.enabled
     console?.groupEnd()
   }
 
-  function group() {
+  function createGroup() {
     active = true
     console?.group(`${config.loopTitle || config.title} %c${time()}`, NORMAL)
     queueMicrotask(groupEnd)
   }
 
-  const wrapConsole = (key) => [key, (...msg) => {
+  const reflectConsole = (key) => [key, (...msg) => {
     if (!config.enabled && !config.loopEnabled) return true
-    if (!active) group()
+    if (!active) createGroup()
+
     return console[key](...msg)
   }]
 
   return {
-    ...wrap(config, wrapConfig),
-    ...wrap(console, wrapConsole),
+    ...wrap(config, setValue(config)),
+    ...wrap(console, reflectConsole),
   }
 }

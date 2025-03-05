@@ -1,45 +1,45 @@
 import { NORMAL } from './consts'
-import { capitalizeFirstLetter, time, wrap } from './utils'
+import { defaultConfig } from './defaults'
+import { setValue, time, wrap } from './utils'
 
 export default function ({ enabled = true, title = 'Defer Group' }) {
-  let logQueue = []
+  let consoleQueue = []
 
   const config = {
+    ...defaultConfig,
     enabled,
     title,
-    loopEnabled: false,
-    loopTitle: undefined,
   }
-
-  const wrapConfig = (key) => [
-    `set${capitalizeFirstLetter(key)}`,
-    (value) => {
-      config[key] = value
-    },
-  ]
 
   function reset() {
     config.loopTitle = undefined
-    config.loopEnabled = !!config.loopEnabled
-    logQueue = []
+    config.loopEnabled = config.enabled
+    consoleQueue = []
   }
 
-  function logGroup() {
+  function autoConsoleGroup() {
+    if (!config.enabled && !config.loopEnabled) return
+
     console?.group(`${config.loopTitle || config.title} %c${time()}`, NORMAL)
-    logQueue.forEach(([key, ...msg]) => console[key](...msg))
+    for (const [key, ...msg] of consoleQueue) console[key](...msg)
     console?.groupEnd()
+
     reset()
   }
 
-  const wrapConsole = (key) => [key, (...msg) => {
-    if (!config.enabled && !config.loopEnabled) return true
-    if (logQueue.length === 0) queueMicrotask(logGroup)
-    logQueue.push([key, ...msg])
-    return true
-  }]
+  const reflectConsole = (key) => [
+    key,
+    (...msg) => {
+      if (consoleQueue.length === 0) queueMicrotask(autoConsoleGroup)
+
+      consoleQueue.push([key, ...msg])
+
+      return true
+    },
+  ]
 
   return {
-    ...wrap(config, wrapConfig),
-    ...wrap(console, wrapConsole),
+    ...wrap(config, setValue(config)),
+    ...wrap(console, reflectConsole),
   }
 }
