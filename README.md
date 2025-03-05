@@ -16,8 +16,8 @@ const groupConsole = createGroupConsole({ options })
 
 // All console methods are reflected on groupConsole
 groupConsole.log('Log message')
-groupConsole.warn('Warning message')
-groupConsole.error('Error message')
+groupConsole.time('Timer')
+groupConsole.count('Counter')
 ```
 
 
@@ -32,9 +32,11 @@ const deferConsole = createDeferConsole({ options })
 
 // All console methods are reflected on deferConsole
 deferConsole.log('Log message')
-deferConsole.warn('Warning message')
-deferConsole.error('Error message')
+deferConsole.assert(true, 'Assertion')
+deferConsole.debug('Debug message')
 ```
+
+> When deferring console output, the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context.
 
 ## Options
 
@@ -70,4 +72,4 @@ Set the group title. If this is called after a message call when using `groupCon
 Set the group title just for the current loop. For `groupConsole`, this has to be set before the first message call. With `deferConsole` it can be set anytime within the current event loop.
 
 ---
-_&copy; 2025 David J. Bradshaw_ 
+_&copy; 2025 David J. Bradshaw - License MIT_
