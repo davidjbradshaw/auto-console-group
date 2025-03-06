@@ -2,7 +2,7 @@ const { fromEntries, keys } = Object
 
 export const time = () => {
   const t = new Date()
-  return `${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}.${t.getMilliseconds()}`
+  return `@ ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}.${t.getMilliseconds()}`
 }
 
 const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1)
