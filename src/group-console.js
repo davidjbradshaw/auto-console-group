@@ -1,6 +1,7 @@
 import { NORMAL } from './consts'
 import { defaultConfig } from './defaults'
-import { setValue, time, wrap } from './utils'
+import time from './time'
+import wrap, { setValue } from './wrap-object'
 
 export default function ({ enabled = true, title = 'Auto Group' }) {
   let active = false
