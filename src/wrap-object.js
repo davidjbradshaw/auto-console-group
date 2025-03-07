@@ -4,7 +4,7 @@ const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + strin
 
 export const setValue = (target) => (key) => [
   `set${capitalizeFirstLetter(key)}`,
-  (value) => {
+  function (value) {
     target[key] = value
   },
 ]
