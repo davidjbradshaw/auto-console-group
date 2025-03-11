@@ -5,6 +5,7 @@ import wrap, { setValue } from './wrap-object'
 
 export default function ({ enabled = true, title = 'Defer Group' }) {
   let consoleQueue = []
+  let startTime
 
   const config = {
     ...defaultConfig,
@@ -21,7 +22,7 @@ export default function ({ enabled = true, title = 'Defer Group' }) {
   function autoConsoleGroup() {
     if (!config.enabled && !config.loopEnabled) return
 
-    console?.group(`${config.loopTitle || config.title} %c${time()}`, NORMAL)
+    console?.group(`${config.loopTitle || config.title} %c${startTime}`, NORMAL)
     for (const [key, ...msg] of consoleQueue) console[key](...msg)
     console?.groupEnd()
 
@@ -30,8 +31,11 @@ export default function ({ enabled = true, title = 'Defer Group' }) {
 
   const reflectConsole = (key) => [
     key,
-    (...msg) => {
-      if (consoleQueue.length === 0) queueMicrotask(autoConsoleGroup)
+    function (...msg) {
+      if (consoleQueue.length === 0) {
+        startTime = time()
+        queueMicrotask(autoConsoleGroup)
+      }
 
       consoleQueue.push([key, ...msg])
 
