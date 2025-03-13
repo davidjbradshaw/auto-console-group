@@ -1,15 +1,15 @@
 {
   "name": "auto-group-console",
   "description": "Automagically group console messages",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.3",
   "author": "David J. Bradshaw",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidjbradshaw/auto-group-console/issues"
   },
   "files": ["dist", "img"],
-  "main": "index.umd.cjs",
-  "module": "index.js",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
