@@ -15,7 +15,8 @@
     "dev": "vite",
     "build": "vite build --mode production",
     "preview": "vite preview",
-    "test": "eslint src/*.js *.js"
+    "prepublishOnly": "npm run test && npm run build",
+    "test": "eslint lib/*.js *.js"
   },
   "repository": {
     "type": "git",
