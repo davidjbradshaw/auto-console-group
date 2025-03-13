@@ -1,8 +1,7 @@
-<img src="https://iframe-resizer.com/auto-group-console2.svg" alt="Auto-Group-Console" title="" style="margin-bottom: -2px; width: 75%">
+<img src="./img/auto-group-console-white.svg" alt="Auto-Group-Console" title="" style="margin-bottom: -2px; width: 75%">
 
 ## Intoduction
 This is a simple library to group console messages automatically by [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop) frames. This is useful in JavaScript applications that have a lot of event triggers, as it allows you to group console output by triggering action. It works by creating a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to close the console group at the end of the current Event Loop.
-
 
 ### Install
 
@@ -32,7 +31,6 @@ groupConsole.log('Log message')
 groupConsole.table(['foo', 'bar'])
 groupConsole.count('Counter')
 ```
-
 
 ### Defer Console
 
