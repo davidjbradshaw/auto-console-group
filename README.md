@@ -1,4 +1,4 @@
-<img src="./img/auto-group-console-white.svg" alt="Auto-Group-Console" title="" style="margin-bottom: -2px; width: 75%">
+<img src="./img/black.svg" alt="Auto-Group-Console" title="" style="margin-bottom: -2px; width: 75%">
 
 ## Intoduction
 
