@@ -11,6 +11,7 @@
     "no-param-reassign": "off",
     "semi": ["error", "never"],
     "import/prefer-default-export": "off",
-    "unicorn/no-array-callback-reference": "off"
+    "unicorn/no-array-callback-reference": "off",
+    "unicorn/prefer-export-from": "off"
   }
 }
