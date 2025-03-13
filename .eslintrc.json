@@ -1,5 +1,9 @@
 {
   "extends": ["auto"],
+  "globals":{
+    "document": true,
+    "window": true
+  },
   "rules": {
     "func-names": "off",
     "no-console": "off",

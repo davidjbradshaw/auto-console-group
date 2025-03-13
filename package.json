@@ -1,10 +1,21 @@
 {
   "name": "auto-group-console",
-  "version": "0.0.2",
   "description": "Automagically group console messages",
-  "main": "src/index.js",
+  "version": "0.1.0-beta.1",
+  "author": "David J. Bradshaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidjbradshaw/auto-group-console/issues"
+  },
+  "files": ["dist", "img"],
+  "main": "index.umd.cjs",
+  "module": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "eslint src/*.js"
+    "dev": "vite",
+    "build": "vite build --mode production",
+    "preview": "vite preview",
+    "test": "eslint src/*.js *.js"
   },
   "repository": {
     "type": "git",
@@ -14,20 +25,15 @@
     "console",
     "group"
   ],
-  "author": "David J. Bradshaw",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/davidjbradshaw/auto-group-console/issues"
-  },
   "homepage": "https://github.com/davidjbradshaw/auto-group-console#readme",
-  "dependencies": {
+  "devDependencies": {
     "eslint": "^8.57.0",
     "eslint-config-adjunct": "^4.13.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-babel": "^0.2.2",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-auto": "^0.9.0",
-    "eslint-config-prettier": "^10.0.2",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-array-func": "^5.0.2",
     "eslint-plugin-compat": "^4.2.0",
     "eslint-plugin-const-case": "^1.2.2",
@@ -61,6 +67,7 @@
     "eslint-plugin-sonarjs": "^0.24.0",
     "eslint-plugin-switch-case": "^1.1.2",
     "eslint-plugin-unicorn": "^51.0.1",
-    "eslint-plugin-xss": "^0.1.12"
+    "eslint-plugin-xss": "^0.1.12",
+    "vite": "^6.2.0"
   }
 }

@@ -1,4 +1,4 @@
-<img src="https://iframe-resizer.com/auto-group-console2.svg" alt="Auto-Group-Console" title="" style="margin-bottom: -2px; width: 75%">
+<img src="./img/auto-group-console-white.svg" alt="Auto-Group-Console" title="" style="margin-bottom: -2px; width: 75%">
 
 ## Intoduction
 
@@ -9,7 +9,6 @@ Tame the JS console by **grouping console message**.
  * **Easier Debugging**: Makes it much clearer to see what is going on in your app.
  * **Time Stamps**: Each grouping is timestamped, to better see what is happening.
  * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure is group is closed on time.
-
 
 ### Install
 
@@ -39,7 +38,6 @@ groupConsole.log('Log message')
 groupConsole.table(['foo', 'bar'])
 groupConsole.count('Counter')
 ```
-
 
 ### Defer Console
 
