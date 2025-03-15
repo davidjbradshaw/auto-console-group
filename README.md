@@ -4,10 +4,10 @@
 
 Tame the JS console by **grouping console message**. 
 
- * **Automatic** grouping of message on each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop).
- * **Easier Debugging** Makes it much clearer to see what is going on in your app.
- * **Time Stamped** Each grouping is timestamped, to better see what is happening.
- * **Reliable** Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure is group is closed.
+ * **Automatic**: Groups messages on each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop).
+ * **Easier Debugging**: Makes it much clearer to see what is going on in your app.
+ * **Time Stamping**: Each grouping is timestamped, to better see what is happening.
+ * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure is group is closed.
 
 
 ### Install
