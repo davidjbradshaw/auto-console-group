@@ -8,7 +8,7 @@ Tame the JS console by **grouping console message**.
  * **Easier Debugging**: Makes it much clearer to see what is going on in your app.
  * **Simple**: Relfects the full console API, making it a drop in replacement.
  * **Time Stamping**: Each grouping is timestamped, to better see what is happening.
- * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure is group is closed.
+ * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure is group is closed on time.
 
 
 ### Install
