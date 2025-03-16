@@ -1,6 +1,6 @@
 <img src="./img/blacker.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
 
-## Introduction
+# Introduction
 
 Tame the JS console by **automagically grouping console message**.
 
@@ -10,9 +10,19 @@ Tame the JS console by **automagically grouping console message**.
  * **Adds Time Stamps**: Each grouping can be timestamped, to help better see what is happening.
  * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure the message group is always closed on time.
 
-Example output created by [example.js](./example.js).
+A more readable console output in a couple of minutes.
 
 <img src="./img/example.png" alt="example output" label="">
+
+_Above example created by [example.js](./example.js)_.
+
+## Install
+
+Install _auto-group-console_ via npm.
+
+```sh
+npm install auto-group-console
+```
 
 ## Usage
 
