@@ -1,24 +1,29 @@
 import { createDeferConsole, createGroupConsole } from './lib/index'
 
-const deferConsole = createDeferConsole({ defaultEvent: 'deferredEvent' })
+const deferConsole = createDeferConsole({ label: 'Auto Deferred Group', defaultEvent: 'Event' })
 const groupConsole = createGroupConsole()
+const timelessConsole = createDeferConsole({ showTime: false })
+const collapsedConsole = createDeferConsole({ label: 'Auto Collapsed Group', collapsed: true })
 
 deferConsole.log('This will be logged after the group console')
 groupConsole.log('This will be logged in a group')
 
 setTimeout(() => {
-  groupConsole.event('myEvent')
-  groupConsole.label('myLabel')
-  groupConsole.log('log 1')
-  groupConsole.log('log 2')
+  deferConsole.log('log 1')
+  deferConsole.event('myEvent')
+  deferConsole.label('myLabel')
+  deferConsole.log('log 2')
 })
 
 setTimeout(() => {
-  groupConsole.label('Auto Group')
-  groupConsole.event('thirdEvent')
-  groupConsole.showTime(false)
-  groupConsole.log('Without time')
-  groupConsole.log('log 4')
-  groupConsole.log('log 5')
-  groupConsole.showTime(true)
+  collapsedConsole.log('This will be logged in a collapsed group 1')
+  collapsedConsole.log('This will be logged in a collapsed group 2')
+  collapsedConsole.log('This will be logged in a collapsed group 3')
+})
+
+setTimeout(() => {
+  timelessConsole.log('Without time')
+  timelessConsole.log('log 4')
+  timelessConsole.event('noTime')
+  timelessConsole.log('log 5')
 })
