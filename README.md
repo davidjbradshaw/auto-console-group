@@ -10,9 +10,7 @@ Tame the JS console by **Automagically grouping console message**.
  * **Adds Time Stamps**: Each grouping is timestamped, to better see what is happening.
  * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure the message group is always closed on time.
 
-
-
-
+<img src="./img/black.svg" alt="example output" label="">
 
 ## Usage
 
