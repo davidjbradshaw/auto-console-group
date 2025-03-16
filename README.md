@@ -25,21 +25,6 @@ The library provides two modes of operation, `deferConsole` and `groupConsole`,
 The deferred approach has several tradeoffs, it allows you to change settings and purge messages before outputting to the console. However, it also prevents console timers giving accurate results and removes the stacktraces.
 Both approaches provide the same interface and are interchangeable, allowing you to use one for development and the other for production.
 
-### Defer Console
-
-The Defer Console, outputs all console messages at the end of the current Event Loop task. 
-
-```js
-import { createDeferConsole } from 'auto-group-console'
-
-const deferConsole = createDeferConsole({ options })
-
-// All console methods are reflected on deferConsole
-deferConsole.log('Log message')
-deferConsole.assert(true, 'Assertion')
-deferConsole.debug('Debug message')
-```
-
 ### Group Console
 
 The Group Console creates a group on the first message and then closed the group when the current Event Loop task ends.
@@ -55,7 +40,22 @@ groupConsole.table(['foo', 'bar'])
 groupConsole.count('Counter')
 ```
 
-> When deferring console output, the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context.
+### Defer Console
+
+The Defer Console, outputs all console messages at the end of the current Event Loop task. 
+
+```js
+import { createDeferConsole } from 'auto-group-console'
+
+const deferConsole = createDeferConsole({ options })
+
+// All console methods are reflected on deferConsole
+deferConsole.log('Log message')
+deferConsole.assert(true, 'Assertion')
+deferConsole.debug('Debug message')
+```
+
+> _Note When using `deferConsole()` the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context_.
 
 ## Options
 
