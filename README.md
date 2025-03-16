@@ -1,6 +1,6 @@
 <img src="./img/black.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
 
-## Intoduction
+## Introduction
 
 Tame the JS console by **Automagically grouping console message**.
 
@@ -10,7 +10,11 @@ Tame the JS console by **Automagically grouping console message**.
  * **Adds Time Stamps**: Each grouping is timestamped, to better see what is happening.
  * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure the message group is always closed on time.
 
+### Example
+
 <img src="./img/example.png" alt="example output" label="">
+
+_The above example was created by [example.js](./example.js)._
 
 ## Usage
 
@@ -62,7 +66,7 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
 {
   label: 'label',          // First part of the group heading
   defaultEvent: 'event',   // Second part of the group heading, shown in bold
-  showTime: true,              // Display time in the group heading
+  showTime: true,          // Display time in the group heading
 }
 ```
 
