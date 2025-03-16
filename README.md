@@ -35,7 +35,7 @@ The deferred approach has several tradeoffs, it allows you to change settings an
 Both approaches provide the same interface and are interchangeable, allowing you to use one for development and the other for production.
 -->
 
-### Setup
+## Setup
 
 The `createGroupConsole()` creates a console object with all the same methods as the regular `console` object.
 
