@@ -3,7 +3,7 @@ import createAutoGroupConsole from './lib/index'
 const COLLAPSED = 'collapsed log'
 
 const deferConsole = createAutoGroupConsole({ defaultEvent: 'Event' })
-const timelessConsole = createAutoGroupConsole({ showTime: false })
+const timelessConsole = createAutoGroupConsole({ label: 'Group without event and time', showTime: false })
 const collapsedConsole = createAutoGroupConsole({ label: 'Auto Collapsed Group', collapsed: true })
 
 setTimeout(() => {
@@ -33,8 +33,7 @@ setTimeout(() => {
 }, 1235)
 
 setTimeout(() => {
-  timelessConsole.log('without time')
   timelessConsole.count('log')
-  timelessConsole.event('noTime')
+  timelessConsole.count('log')
   timelessConsole.count('log')
 }, 1235)
