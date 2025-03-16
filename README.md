@@ -2,27 +2,26 @@
 
 ## Intoduction
 
-Tame the JS console by **grouping console message**. 
+Tame the JS console by **Automagically grouping console message**.
 
  * **Simple**: Reflects the full console API, making it a drop in replacement.
  * **Automatic**: Groups messages by each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop)..
  * **Easier Debugging**: Makes it much clearer to see what is going on in your app.
  * **Time Stamps**: Each grouping is timestamped, to better see what is happening.
- * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure is group is closed on time.
+ * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure the message group is always closed on time.
 
-### Install
 
-This library can be install from NPM.
 
-```sh
-npm install auto-group-console
-```
+
 
 ## Usage
 
-The library provides two modes of operation, `groupConsole` and `deferConsole`, They both provide the same interface and are interchangeable. The `groupConsole` version outputs logs in real time and creates a microtask to end the console group. Whereas the `deferConsole` version, stores all console messages and outputs everything through the microtask after the main task has completed. 
+The library provides two modes of operation, `groupConsole` and `deferConsole`, They both provide the same interface and are interchangeable.
 
-The deferred approach has several tradeoffs, it allows you to set the group heading after the first log message and suppresses stack traces, which might be useful on public sites. However, it also prevents console timers giving accurate results.
+ * `groupConsole` Outputs logs in real time and creates a microtask to end the console group.
+ * `deferConsole` Stores all console messages and outputs everything through the microtask after the main task has completed.
+
+The deferred approach has several tradeoffs, it allows you to change settings and purge messages before outputting to the console. However, it also prevents console timers giving accurate results and removes the stacktraces.
 
 ### Group Console
 
