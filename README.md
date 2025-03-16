@@ -74,13 +74,13 @@ In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/W
 
 ### event(_string_)
 
-Set the event type part of the group heading.
+Set the event type part of the group heading for the current event loop.
 
 > When using `groupConsole` this has to be set before all other console messages.
 
 ### label(_string_)
 
-Set the label type part of the group heading.
+Set the label type part of the group heading for all future messages.
 
 > When using `groupConsole` this has to be set before all other console messages.
 

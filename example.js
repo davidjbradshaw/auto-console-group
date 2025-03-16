@@ -6,18 +6,17 @@ const deferConsole = createDeferConsole({ defaultEvent: 'deferredEvent' })
 const groupConsole = createGroupConsole()
 
 deferConsole.log('This will be logged after the group console')
-// deferConsole.event('event')
-// deferConsole.showTime(false)
 
-// groupConsole.event('event')
 groupConsole.log('This will be logged in a group')
 groupConsole.endAutoGroup()
 
-groupConsole.event('secondEvent')
+groupConsole.event('myEvent')
+groupConsole.label('myLabel')
 groupConsole.log('log 1')
 groupConsole.log('log 2')
 groupConsole.endAutoGroup()
 
+groupConsole.label('Auto Group')
 groupConsole.event('thirdEvent')
 groupConsole.showTime(false)
 groupConsole.log('Without time')
