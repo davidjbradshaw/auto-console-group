@@ -1,4 +1,4 @@
-<img src="./img/black.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
+<img src="./img/blacker.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
 
 ## Introduction
 
@@ -64,6 +64,7 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
 ```js
 {
   label: 'label',          // First part of the group heading
+  collapsed: false,        // Show group expaneded or collapsed
   defaultEvent: 'event',   // Second part of the group heading, shown in bold
   showTime: true,          // Display time in the group heading
 }
@@ -81,23 +82,11 @@ Set the event type part of the group heading for the current event loop.
 
 > When using `groupConsole` this has to be set before all other console messages.
 
-### label(_string_)
-
-Set the label type part of the group heading for all future messages.
-
-> When using `groupConsole` this has to be set before all other console messages.
-
 ### purge()
 
 Remove all messages in the current output queue.
 
 > When using `groupConsole` this is ignored.
-
-### showTime(_bool_)
-
-Turn clock on and off.
-
-> When using `groupConsole` this has to be set before all other console messages.
 
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
