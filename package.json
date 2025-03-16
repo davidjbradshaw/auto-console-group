@@ -1,7 +1,7 @@
 {
   "name": "auto-group-console",
   "description": "Automagically group console messages",
-  "version": "0.1.0-beta.3",
+  "version": "1.0.0-beta.1",
   "author": "David J. Bradshaw",
   "license": "MIT",
   "bugs": {
