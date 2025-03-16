@@ -1,7 +1,5 @@
 import { createDeferConsole, createGroupConsole } from './lib/index'
 
-window.createDeferConsole = createDeferConsole
-
 const deferConsole = createDeferConsole({ defaultEvent: 'deferredEvent' })
 const groupConsole = createGroupConsole()
 
