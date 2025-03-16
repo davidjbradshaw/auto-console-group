@@ -16,27 +16,13 @@ Tame the JS console by **Automagically grouping console message**.
 
 ## Usage
 
-The library provides two modes of operation, `groupConsole` and `deferConsole`, They both provide the same interface and are interchangeable.
+The library provides two modes of operation, `groupConsole` and `deferConsole`, 
 
- * `groupConsole` Outputs logs in real time and creates a microtask to end the console group at the end of the event loop.
  * `deferConsole` Stores logs and outputs everything through the microtask after the event loop has completed.
+ * `groupConsole` Outputs logs in real time and creates a microtask to end the console group at the end of the event loop.
 
 The deferred approach has several tradeoffs, it allows you to change settings and purge messages before outputting to the console. However, it also prevents console timers giving accurate results and removes the stacktraces.
-
-### Group Console
-
-The Group Console creates a group on the first message and then closed the group when the current Event Loop task ends.
-
-```js
-import { createGroupConsole } from 'auto-group-console'
-
-const groupConsole = createGroupConsole({ options })
-
-// All console methods are reflected on groupConsole
-groupConsole.log('Log message')
-groupConsole.table(['foo', 'bar'])
-groupConsole.count('Counter')
-```
+Both approaches provide the same interface and are interchangeable, allowing you to use one for development and the other for production.
 
 ### Defer Console
 
@@ -51,6 +37,21 @@ const deferConsole = createDeferConsole({ options })
 deferConsole.log('Log message')
 deferConsole.assert(true, 'Assertion')
 deferConsole.debug('Debug message')
+```
+
+### Group Console
+
+The Group Console creates a group on the first message and then closed the group when the current Event Loop task ends.
+
+```js
+import { createGroupConsole } from 'auto-group-console'
+
+const groupConsole = createGroupConsole({ options })
+
+// All console methods are reflected on groupConsole
+groupConsole.log('Log message')
+groupConsole.table(['foo', 'bar'])
+groupConsole.count('Counter')
 ```
 
 > When deferring console output, the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context.
