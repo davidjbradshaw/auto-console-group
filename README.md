@@ -64,7 +64,7 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
 {
   label: 'label',          // First part of the group heading
   defaultEvent: 'event',   // Second part of the group heading, shown in bold
-  time: true,              // Display time in the group heading
+  showTime: true,              // Display time in the group heading
 }
 ```
 
@@ -74,13 +74,13 @@ When `enabled` is set to false it will suppress all messages to the console.
 
 In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/Web/API/console), the following methods are also available.
 
-### event()
+### event(_string_)
 
 Set the event type part of the group heading.
 
 > When using `groupConsole` this has to be set before all other console messages.
 
-### label()
+### label(_string_)
 
 Set the label type part of the group heading.
 
@@ -91,6 +91,12 @@ Set the label type part of the group heading.
 Remove all messages in the current output queue.
 
 > When using `groupConsole` this is ignored.
+
+### showTime(_bool_)
+
+Turn clock on and off.
+
+> When using `groupConsole` this has to be set before all other console messages.
 
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
