@@ -4,8 +4,8 @@
 
 Tame the JS console by **automagically grouping console message**.
 
- * **Simple**: Reflects the full console API, making it a drop in replacement.
- * **Automatic**: Groups messages by each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop)..
+ * **Simple**: Drop in replacement for the full console API.
+ * **Automatic**: Groups messages by each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop).
  * **Easier Debugging**: Makes it much clearer to see what is going on in your app.
  * **Adds Time Stamps**: Each grouping can be timestamped, to help better see what is happening.
  * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure the message group is always closed on time.
@@ -64,13 +64,11 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
 ```js
 {
   label: 'label',          // First part of the group heading
-  collapsed: false,        // Show group expaneded or collapsed
+  collapsed: false,        // Show group expanded or collapsed
   defaultEvent: 'event',   // Second part of the group heading, shown in bold
   showTime: true,          // Display time in the group heading
 }
 ```
-
-When `enabled` is set to false it will suppress all messages to the console.
 
 ## Methods
 
