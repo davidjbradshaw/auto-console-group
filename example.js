@@ -19,6 +19,7 @@ setTimeout(() => {
   collapsedConsole.log('This will be logged in a collapsed group 1')
   collapsedConsole.log('This will be logged in a collapsed group 2')
   collapsedConsole.log('This will be logged in a collapsed group 3')
+  collapsedConsole.event('myEvent')
 })
 
 setTimeout(() => {
