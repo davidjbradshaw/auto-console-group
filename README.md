@@ -14,7 +14,6 @@ The following example was created by [example.js](./example.js).
 
 <img src="./img/example.png" alt="example output" label="">
 
-__
 
 ## Usage
 
