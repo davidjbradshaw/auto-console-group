@@ -29,7 +29,7 @@ npm install auto-group-console
 The library provides two modes of operation, `deferConsole` and `groupConsole`,
 
  * `deferConsole` Stores logs and outputs everything through the microtask after the event loop has completed.
- * `groupConsole` Outputs logs in real time and creates a microtask to end the console group at the end of the event loop.
+ * `groupConsole` Outputs logs in real time and creates a microtask to close the console group at the end of the event loop.
 
 The deferred approach has several tradeoffs, it allows you to change settings and purge messages before outputting to the console. However, it also prevents console timers giving accurate results and removes the stacktraces.
 Both approaches provide the same interface and are interchangeable, allowing you to use one for development and the other for production.
