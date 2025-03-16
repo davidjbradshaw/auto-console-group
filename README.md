@@ -78,7 +78,13 @@ In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/W
 
 Set the event type part of the group heading.
 
-> When using `groupConsole` this has to be set before any other console messages.
+> When using `groupConsole` this has to be set before all other console messages.
+
+### label()
+
+Set the label type part of the group heading.
+
+> When using `groupConsole` this has to be set before all other console messages.
 
 ### purge()
 
