@@ -50,8 +50,6 @@ groupConsole.table(['foo', 'bar'])
 groupConsole.count('Counter')
 ```
 
-> _Note When using `deferConsole()` the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context_.
-
 ## Options
 
 The following options can be passed to `createGroupConsole` and `createDeferConsole`, to set the group
@@ -78,6 +76,10 @@ Set the event type part of the group heading for the current event loop.
 ### purge()
 
 Remove all messages in the current output queue.
+
+<!--  
+_Note When using `deferConsole()` the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context_.
+-->
 
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
