@@ -1,35 +1,37 @@
-import { createDeferConsole, createGroupConsole } from './lib/index'
+import createGroupConsole from './lib/index'
 
-const deferConsole = createDeferConsole({ label: 'Auto Deferred Group', defaultEvent: 'Event' })
-const groupConsole = createGroupConsole()
-const timelessConsole = createDeferConsole({ showTime: false })
-const collapsedConsole = createDeferConsole({ label: 'Auto Collapsed Group', collapsed: true })
-
-setTimeout(() => {
-  groupConsole.log('This will be logged in a group')
-})
+const deferConsole = createGroupConsole({ defaultEvent: 'Event' })
+const timelessConsole = createGroupConsole({ showTime: false })
+const collapsedConsole = createGroupConsole({ label: 'Auto Collapsed Group', collapsed: true })
 
 setTimeout(() => {
   deferConsole.log('This will be logged at the end of the current Event Loop')
-})
+}, 37)
 
 setTimeout(() => {
   deferConsole.log('log 1')
   deferConsole.event('myEvent')
   deferConsole.label('myLabel')
   deferConsole.log('log 2')
-})
+}, 486)
 
 setTimeout(() => {
-  collapsedConsole.log('This will be logged in a collapsed group 1')
-  collapsedConsole.log('This will be logged in a collapsed group 2')
-  collapsedConsole.log('This will be logged in a collapsed group 3')
+  collapsedConsole.log('Collapsed group 1')
+  collapsedConsole.log('Collapsed group 2')
+  collapsedConsole.log('Collapsed group 3')
   collapsedConsole.event('myEvent')
-})
+}, 1234)
+
+setTimeout(() => {
+  collapsedConsole.log('Collapsed group 1')
+  collapsedConsole.warn('This will force the group to expand')
+  collapsedConsole.log('Collapsed group 3')
+  collapsedConsole.event('myEvent')
+}, 1235)
 
 setTimeout(() => {
   timelessConsole.log('Without time')
   timelessConsole.log('log 4')
   timelessConsole.event('noTime')
   timelessConsole.log('log 5')
-})
+}, 1235)

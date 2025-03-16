@@ -23,7 +23,7 @@ Install _auto-group-console_ via npm.
 ```sh
 npm install auto-group-console
 ```
-
+<!--
 ## Usage
 
 The library provides two modes of operation, `deferConsole` and `groupConsole`,
@@ -33,26 +33,11 @@ The library provides two modes of operation, `deferConsole` and `groupConsole`,
 
 The deferred approach has several tradeoffs, it allows you to change settings and purge messages before outputting to the console. However, it also prevents console timers giving accurate results and removes the stacktraces.
 Both approaches provide the same interface and are interchangeable, allowing you to use one for development and the other for production.
+-->
 
+### Setup
 
-### Defer Console
-
-The Defer Console, outputs all console messages at the end of the current Event Loop task. 
-
-```js
-import { createDeferConsole } from 'auto-group-console'
-
-const deferConsole = createDeferConsole({ options })
-
-// All console methods are reflected on deferConsole
-deferConsole.log('Log message')
-deferConsole.assert(true, 'Assertion')
-deferConsole.debug('Debug message')
-```
-
-### Group Console
-
-The Group Console creates a group on the first message and then closed the group when the current Event Loop task ends.
+The `createGroupConsole()` creates a console object with all the same methods as the regular `console` object.
 
 ```js
 import { createGroupConsole } from 'auto-group-console'
@@ -79,6 +64,8 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
   showTime: true,          // Display time in the group heading
 }
 ```
+
+> _When the `collapsed` option is set to __true__, the group will automatically open if a warning or error is logged to the console_.
 
 ## Methods
 
