@@ -40,7 +40,7 @@ Both approaches provide the same interface and are interchangeable, allowing you
 The `createGroupConsole()` creates a console object with all the same methods as the regular `console` object.
 
 ```js
-import { createGroupConsole } from 'auto-group-console'
+import createGroupConsole from 'auto-group-console'
 
 const groupConsole = createGroupConsole({ options })
 
