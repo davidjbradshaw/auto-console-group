@@ -63,7 +63,7 @@ The following options can be passed to `createGroupConsole` and `createDeferCons
 }
 ```
 
-> _When the `collapsed` option is set to __true__, the group will automatically open if a warning or error is logged to the console_.
+> _When the_ `collapsed` _option is set to __true__, the group will automatically open if a __warning__ or __error__ is logged to the console_.
 
 ## Methods
 
