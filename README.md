@@ -7,13 +7,12 @@ Tame the JS console by **Automagically grouping console message**.
  * **Simple**: Reflects the full console API, making it a drop in replacement.
  * **Automatic**: Groups messages by each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop)..
  * **Easier Debugging**: Makes it much clearer to see what is going on in your app.
- * **Adds Time Stamps**: Each grouping is timestamped, to better see what is happening.
+ * **Adds Time Stamps**: Each grouping can be timestamped, to help better see what is happening.
  * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure the message group is always closed on time.
 
 Example output created by [example.js](./example.js).
 
 <img src="./img/example.png" alt="example output" label="">
-
 
 ## Usage
 
@@ -25,20 +24,6 @@ The library provides two modes of operation, `deferConsole` and `groupConsole`,
 The deferred approach has several tradeoffs, it allows you to change settings and purge messages before outputting to the console. However, it also prevents console timers giving accurate results and removes the stacktraces.
 Both approaches provide the same interface and are interchangeable, allowing you to use one for development and the other for production.
 
-### Group Console
-
-The Group Console creates a group on the first message and then closed the group when the current Event Loop task ends.
-
-```js
-import { createGroupConsole } from 'auto-group-console'
-
-const groupConsole = createGroupConsole({ options })
-
-// All console methods are reflected on groupConsole
-groupConsole.log('Log message')
-groupConsole.table(['foo', 'bar'])
-groupConsole.count('Counter')
-```
 
 ### Defer Console
 
@@ -53,6 +38,21 @@ const deferConsole = createDeferConsole({ options })
 deferConsole.log('Log message')
 deferConsole.assert(true, 'Assertion')
 deferConsole.debug('Debug message')
+```
+
+### Group Console
+
+The Group Console creates a group on the first message and then closed the group when the current Event Loop task ends.
+
+```js
+import { createGroupConsole } from 'auto-group-console'
+
+const groupConsole = createGroupConsole({ options })
+
+// All console methods are reflected on groupConsole
+groupConsole.log('Log message')
+groupConsole.table(['foo', 'bar'])
+groupConsole.count('Counter')
 ```
 
 > _Note When using `deferConsole()` the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context_.
