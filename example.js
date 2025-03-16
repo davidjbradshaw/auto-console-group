@@ -2,8 +2,8 @@ import { createDeferConsole, createGroupConsole } from './lib/index'
 
 window.createDeferConsole = createDeferConsole
 
-const deferConsole = createDeferConsole({ title: 'Defer', defaultEvent: 'defer' })
-const groupConsole = createGroupConsole({ title: 'Group' })
+const deferConsole = createDeferConsole({ label: 'Defer', defaultEvent: 'defer' })
+const groupConsole = createGroupConsole({ label: 'Group' })
 
 deferConsole.log('This will be logged after the group console')
 deferConsole.event('event')

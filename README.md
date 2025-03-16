@@ -1,4 +1,4 @@
-<img src="./img/black.svg" alt="Auto-Group-Console" title="" style="margin-bottom: -2px; width: 75%">
+<img src="./img/black.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
 
 ## Intoduction
 
@@ -16,7 +16,7 @@ Tame the JS console by **Automagically grouping console message**.
 
 ## Usage
 
-The library provides two modes of operation, `groupConsole` and `deferConsole`, 
+The library provides two modes of operation, `deferConsole` and `groupConsole`,
 
  * `deferConsole` Stores logs and outputs everything through the microtask after the event loop has completed.
  * `groupConsole` Outputs logs in real time and creates a microtask to end the console group at the end of the event loop.
@@ -58,12 +58,13 @@ groupConsole.count('Counter')
 
 ## Options
 
-The following options can be passed to `createGroupConsole` and `createDeferConsole`.
+The following options can be passed to `createGroupConsole` and `createDeferConsole`, to set the group
 
 ```js
 {
-  enabled: true / false
-  title: 'Default Group Title'
+  label: 'label',          // First part of the group heading
+  defaultEvent: 'event',   // Second part of the group heading, shown in bold
+  time: true,              // Display time in the group heading
 }
 ```
 
@@ -73,21 +74,17 @@ When `enabled` is set to false it will suppress all messages to the console.
 
 In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/Web/API/console), the following methods are also available.
 
-### setEnabled(<span style="font-weight: normal">true/false</span>)
+### event()
 
-Turn console logging on and off.
+Set the event type part of the group heading.
 
-### setLoopEnabled(<span style="font-weight: normal">true/false</span>)
+> When using `groupConsole` this has to be set before any other console messages.
 
-Turn console logging on and off for just the current loop.
+### purge()
 
-### setTitle(<span style="font-weight: normal">title</span>)
+Remove all messages in the current output queue.
 
-Set the group title. If this is called after a message call when using `groupConsole`, then the title will only update on the next event loop.
-
-### setLoopTitle(<span style="font-weight: normal">title</span>)
-
-Set the group title just for the current loop. For `groupConsole`, this has to be set before the first message call. With `deferConsole` it can be set anytime within the current event loop.
+> When using `groupConsole` this is ignored.
 
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
