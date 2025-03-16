@@ -1,10 +1,10 @@
-import createGroupConsole from './lib/index'
+import createAutoGroupConsole from './lib/index'
 
 const COLLAPSED = 'collapsed log'
 
-const deferConsole = createGroupConsole({ defaultEvent: 'Event' })
-const timelessConsole = createGroupConsole({ showTime: false })
-const collapsedConsole = createGroupConsole({ label: 'Auto Collapsed Group', collapsed: true })
+const deferConsole = createAutoGroupConsole({ defaultEvent: 'Event' })
+const timelessConsole = createAutoGroupConsole({ showTime: false })
+const collapsedConsole = createAutoGroupConsole({ label: 'Auto Collapsed Group', collapsed: true })
 
 setTimeout(() => {
   deferConsole.log('This will be logged at the end of the current Event Loop')

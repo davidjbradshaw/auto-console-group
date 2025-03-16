@@ -37,12 +37,12 @@ Both approaches provide the same interface and are interchangeable, allowing you
 
 ## Setup
 
-The `createGroupConsole()` creates a console object with all the same methods as the regular `console` object.
+The `createAutoGroupConsole()` creates a console object with all the same methods as the regular `console` object.
 
 ```js
-import createGroupConsole from 'auto-group-console'
+import createAutoGroupConsole from 'auto-group-console'
 
-const groupConsole = createGroupConsole({ options })
+const groupConsole = createAutoGroupConsole({ options })
 
 // All console methods are reflected on groupConsole
 groupConsole.log('Log message')
@@ -52,7 +52,7 @@ groupConsole.count('Counter')
 
 ## Options
 
-The following options can be passed to `createGroupConsole` and `createDeferConsole`, to set the group
+The following options can be passed to `createAutoGroupConsole`.
 
 ```js
 {
