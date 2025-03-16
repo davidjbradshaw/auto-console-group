@@ -5,8 +5,13 @@ const groupConsole = createGroupConsole()
 const timelessConsole = createDeferConsole({ showTime: false })
 const collapsedConsole = createDeferConsole({ label: 'Auto Collapsed Group', collapsed: true })
 
-deferConsole.log('This will be logged after the Event Loop has finished')
-groupConsole.log('This will be logged in a group')
+setTimeout(() => {
+  groupConsole.log('This will be logged in a group')
+})
+
+setTimeout(() => {
+  deferConsole.log('This will be logged at the end of the current Event Loop')
+})
 
 setTimeout(() => {
   deferConsole.log('log 1')
