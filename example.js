@@ -1,5 +1,7 @@
 import createGroupConsole from './lib/index'
 
+const COLLAPSED = 'collapsed log'
+
 const deferConsole = createGroupConsole({ defaultEvent: 'Event' })
 const timelessConsole = createGroupConsole({ showTime: false })
 const collapsedConsole = createGroupConsole({ label: 'Auto Collapsed Group', collapsed: true })
@@ -9,29 +11,30 @@ setTimeout(() => {
 }, 37)
 
 setTimeout(() => {
-  deferConsole.log('log 1')
+  deferConsole.count('log')
   deferConsole.event('myEvent')
   deferConsole.label('myLabel')
-  deferConsole.log('log 2')
+  deferConsole.count('log')
 }, 486)
 
 setTimeout(() => {
-  collapsedConsole.log('Collapsed group 1')
-  collapsedConsole.log('Collapsed group 2')
-  collapsedConsole.log('Collapsed group 3')
+  collapsedConsole.count(COLLAPSED)
+  collapsedConsole.count(COLLAPSED)
+  collapsedConsole.count(COLLAPSED)
   collapsedConsole.event('myEvent')
+  collapsedConsole.countReset(COLLAPSED)
 }, 1234)
 
 setTimeout(() => {
-  collapsedConsole.log('Collapsed group 1')
+  collapsedConsole.count(COLLAPSED)
   collapsedConsole.warn('This will force the group to expand')
-  collapsedConsole.log('Collapsed group 3')
+  collapsedConsole.count(COLLAPSED)
   collapsedConsole.event('myEvent')
 }, 1235)
 
 setTimeout(() => {
-  timelessConsole.log('Without time')
-  timelessConsole.log('log 4')
+  timelessConsole.log('without time')
+  timelessConsole.count('log')
   timelessConsole.event('noTime')
-  timelessConsole.log('log 5')
+  timelessConsole.count('log')
 }, 1235)

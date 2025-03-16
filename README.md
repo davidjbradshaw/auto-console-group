@@ -75,13 +75,9 @@ In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/W
 
 Set the event type part of the group heading for the current event loop.
 
-> When using `groupConsole` this has to be set before all other console messages.
-
 ### purge()
 
 Remove all messages in the current output queue.
-
-> When using `groupConsole` this is ignored.
 
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
