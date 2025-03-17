@@ -47,5 +47,4 @@ setTimeout(() => {
   timelessConsole.count('log')
   timelessConsole.count('log')
   timelessConsole.count('log')
-  ds
 }, 1235)
