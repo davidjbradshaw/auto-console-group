@@ -54,7 +54,7 @@ The following options can be passed to `createAutoGroupConsole`.
 }
 ```
 
-> _When the_ `collapsed` _option is set to __true__, the group will automatically open if a __warning__ or __error__ is logged to the console_.
+> _When the_ `collapsed` _option is set to __true__, the group will automatically open if a __warning__ or __error__ is included in the group_.
 
 ## Methods
 
