@@ -14,7 +14,7 @@ A more readable console output in a couple of minutes.
 
 <img src="./img/example.png" alt="example output" label="">
 
-_Above example created by [example.js](./example.js)_.
+_Above created by [example.js](./example.js)_.
 
 ## Install
 
@@ -23,17 +23,6 @@ Install _auto-group-console_ via npm.
 ```sh
 npm install auto-group-console
 ```
-<!--
-## Usage
-
-The library provides two modes of operation, `deferConsole` and `groupConsole`,
-
- * `deferConsole` Stores logs and outputs everything through the microtask after the event loop has completed.
- * `groupConsole` Outputs logs in real time and creates a microtask to close the console group at the end of the event loop.
-
-The deferred approach has several tradeoffs, it allows you to change settings and purge messages before outputting to the console. However, it also prevents console timers giving accurate results and removes the stacktraces.
-Both approaches provide the same interface and are interchangeable, allowing you to use one for development and the other for production.
--->
 
 ## Setup
 
