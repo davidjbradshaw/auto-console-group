@@ -60,6 +60,10 @@ The following options can be passed to `createAutoGroupConsole`.
 
 In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/Web/API/console), the following methods are also available.
 
+### endAutoGroup()
+
+Force the current group to output to the browser console. Any logs created after this call will appear in a new group.
+
 ### event(_string_)
 
 Set the event type part of the group heading for the current event loop.
