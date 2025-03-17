@@ -39,6 +39,8 @@ groupConsole.table(['foo', 'bar'])
 groupConsole.count('Counter')
 ```
 
+> Note: If their is an uncaught error in you code, the logs leading up to the error will be displayed in a group directly after the error is logged to the console.
+
 ## Options
 
 The following options can be passed to `createAutoGroupConsole`.
