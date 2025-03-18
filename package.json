@@ -1,7 +1,7 @@
 {
   "name": "auto-group-console",
   "description": "Automagically group console messages",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0",
   "author": "David J. Bradshaw",
   "license": "MIT",
   "bugs": {
@@ -15,7 +15,7 @@
     "dev": "vite",
     "build": "vite build --mode production",
     "preview": "vite preview",
-    "prepublishOnly": "npm run test && npm run build",
+    "prepublishOnly": "npm i && npm run test && npm run build",
     "test": "eslint lib/*.js *.js"
   },
   "repository": {
@@ -69,6 +69,6 @@
     "eslint-plugin-switch-case": "^1.1.2",
     "eslint-plugin-unicorn": "^51.0.1",
     "eslint-plugin-xss": "^0.1.12",
-    "vite": "^6.2.0"
+    "vite": "^6.2.2"
   }
 }
