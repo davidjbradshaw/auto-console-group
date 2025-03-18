@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/davidjbradshaw/auto-group-console/issues"
   },
-  "files": ["dist", "img"],
+  "files": ["dist", "img/example.png", "img/blacker.svg"],
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
   "type": "module",
