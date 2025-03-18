@@ -6,6 +6,7 @@
   },
   "rules": {
     "func-names": "off",
+    "no-confusing-arrow": "off",
     "no-console": "off",
     "no-restricted-syntax": "off",
     "no-param-reassign": "off",
