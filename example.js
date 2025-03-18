@@ -53,7 +53,6 @@ setTimeout(() => {
   timelessConsole.count('count')
 }, 1235)
 
-
 setTimeout(() => {
   autoGroupConsole.count('count')
   autoGroupConsole.event('myEvent')
