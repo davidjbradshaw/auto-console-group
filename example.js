@@ -17,19 +17,19 @@ const timelessConsole = createAutoGroupConsole({
   showTime: false,
 })
 
-autoGroupConsole.time('test')
+autoGroupConsole.time('myTimer')
 
 setTimeout(() => {
   autoGroupConsole.log('This will be logged at the end of the current Event Loop')
-  autoGroupConsole.timeLog('test', 'This will be logged with the time')
+  autoGroupConsole.timeLog('myTimer', 'This will be logged with the console.timeLog')
 }, 37)
 
 setTimeout(() => {
-  autoGroupConsole.count('log')
+  autoGroupConsole.count('count')
   autoGroupConsole.event('myEvent')
   autoGroupConsole.label('myLabel')
-  autoGroupConsole.count('log')
-  autoGroupConsole.timeLog('test')
+  autoGroupConsole.count('count')
+  autoGroupConsole.timeLog('myTimer')
 }, 486)
 
 setTimeout(() => {
@@ -48,16 +48,16 @@ setTimeout(() => {
 }, 1235)
 
 setTimeout(() => {
-  timelessConsole.count('log')
-  timelessConsole.count('log')
-  timelessConsole.count('log')
+  timelessConsole.count('count')
+  timelessConsole.count('count')
+  timelessConsole.count('count')
 }, 1235)
 
 
 setTimeout(() => {
-  autoGroupConsole.count('log')
+  autoGroupConsole.count('count')
   autoGroupConsole.event('myEvent')
   autoGroupConsole.label('myLabel')
-  autoGroupConsole.count('log')
-  autoGroupConsole.timeEnd('test')
+  autoGroupConsole.count('count')
+  autoGroupConsole.timeEnd('myTimer')
 }, 1486)
