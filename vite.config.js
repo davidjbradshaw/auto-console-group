@@ -3,11 +3,17 @@ import { fileURLToPath } from 'node:url'
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  plugins: [
+    dts({
+      insertTypesEntry: true,
+    }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/index.js'),

@@ -7,13 +7,17 @@
   "bugs": {
     "url": "https://github.com/davidjbradshaw/auto-group-console/issues"
   },
-  "files": ["dist", "img/example.png", "img/blacker.svg"],
+  "files": [
+    "dist",
+    "img/example.png",
+    "img/blacker.svg"
+  ],
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode production",
+    "build": "tsc && vite build --mode production",
     "preview": "vite preview",
     "prepublishOnly": "npm i && npm run test && npm run build",
     "test": "eslint lib/*.js *.js"
@@ -69,6 +73,10 @@
     "eslint-plugin-switch-case": "^1.1.2",
     "eslint-plugin-unicorn": "^51.0.1",
     "eslint-plugin-xss": "^0.1.12",
-    "vite": "^6.2.2"
+    "vite": "^6.2.2",
+    "vite-plugin-dts": "^4.5.3"
+  },
+  "dependencies": {
+    "typescript": "^5.8.2"
   }
 }
