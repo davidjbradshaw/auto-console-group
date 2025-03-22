@@ -5,5 +5,7 @@
  *  @copyright  (c)2025 David J. Bradshaw. All rights reserved.
  *  @license     MIT
  */
-import createDeferConsole from './defer-console';
-export default createDeferConsole;
+
+import createDeferConsole from './defer-console'
+
+export default createDeferConsole
