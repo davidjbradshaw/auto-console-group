@@ -1,7 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
@@ -30,3 +30,4 @@ export default defineConfig({
     },
   },
 })
+/* eslint-enable import/no-extraneous-dependencies */
