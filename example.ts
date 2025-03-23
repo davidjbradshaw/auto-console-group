@@ -1,4 +1,4 @@
-import createAutoGroupConsole from './lib/index.ts'
+import createAutoGroupConsole from './lib/index'
 
 const COLLAPSED = 'collapsed log'
 
