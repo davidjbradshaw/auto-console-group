@@ -9,6 +9,7 @@
     "func-names": "off",
     "no-confusing-arrow": "off",
     "no-console": "off",
+    "implicit-arrow-linebreak": "off",
     "no-restricted-syntax": "off",
     "no-param-reassign": "off",
     "semi": ["error", "never"],
