@@ -1,10 +1,13 @@
 {
   "extends": ["auto"],
+  "plugins": ["import"],
   "globals":{
     "document": true,
     "window": true
   },
   "rules": {
+    "@typescript-eslint/semi": "off",
+    "const-case/uppercase": "off",
     "func-names": "off",
     "no-confusing-arrow": "off",
     "no-console": "off",
