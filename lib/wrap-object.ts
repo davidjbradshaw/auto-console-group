@@ -1,13 +1,22 @@
 const { fromEntries, keys } = Object
 
-export const setValue =
-  (target: Record<string, any>) =>
-  (key: string): [string, (value: any) => void] => [
+type SetValueEntry = [string, (value: any) => void]
+type Entry = [string, (...args: any[]) => void]
+
+type Obj = Record<string, any>
+type Func = (key: string) => Entry
+
+type Target = {
+  [key: string]: any
+}
+
+export const setValue = (target: Target) =>
+  (key: string): SetValueEntry => [
     key,
     function (value: any): void {
       target[key] = value
     },
   ]
 
-export default (obj: Record<string, any>, func: (key: string) => [string, any]): Record<string, any> =>
+export default (obj: Obj, func: Func): Obj =>
   fromEntries(keys(obj).map(func))

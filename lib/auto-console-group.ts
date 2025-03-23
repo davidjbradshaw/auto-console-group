@@ -1,60 +1,56 @@
 import {
   BOLD, DEFAULT, NORMAL, NORMAL_ITALIC,
 } from './consts'
-import { defaultConfig, nonDeferrable } from './defaults'
+import {
+  AutoConsoleGroupDefaultOptions,
+  defaultConfig,
+  nonDeferrable,
+} from './defaults'
 import getEvent from './event'
 import getStartTime from './time'
 import wrap, { setValue } from './wrap-object'
 
-type AutoConsoleGroup = Console & {
-  event: string
-  label: string
-  collapsed: boolean
-  showTime: boolean
+type AutoConsoleGroup = Omit<Console, 'time' | 'timeEnd' | 'timeLog'> & {
+  event: (arg0: string) => void
+  label: (arg0: string) => void
+  collapsed: (arg0: boolean) => void
+  showTime: (arg0: boolean) => void
   endAutoGroup: () => void
   purge: () => void
   time: (label?: string) => void
   timeEnd: (label?: string) => void
-  timeLog: (label?: string, ...args: any[]) => void
+  timeLog: (label?: string, ...args: unknown[]) => void
 }
 
-type AutoConsoleGroupOptions = {
-  defaultEvent?: string
-  event?: string
-  label?: string
-  collapsed?: boolean
-  showTime?: boolean
-}
+type AutoConsoleGroupOptions = Omit<AutoConsoleGroupDefaultOptions, 'event'>
 
-type Timers = {
-  [index: string]: number
-}
+type Timers = Record<string, number>
 
 export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGroup {
   const timers: Timers = {}
   const consoleQueue: [string, ...any[]][] = []
-  const config: AutoConsoleGroupOptions = {
+  const config: AutoConsoleGroupDefaultOptions = {
     ...defaultConfig,
     ...options,
   }
 
   let startTime: string
 
-  function resetConsoleQueue() {
+  function resetConsoleQueue(): void {
     consoleQueue.length = 0
   }
 
-  function resetConsoleGroup() {
+  function resetConsoleGroup(): void {
     delete config.event
     resetConsoleQueue()
   }
 
-  const hasErrorWarning = () =>
-    consoleQueue.some(([key]) => key === 'error' || key === 'warn')
-  const isCollapsed = () => (hasErrorWarning() ? false : config.collapsed)
-  const groupStartTime = () => (config.showTime ? startTime : '')
+  const hasErrorWarning = ():boolean => consoleQueue.some(([key]) => key === 'error' || key === 'warn')
 
-  function autoConsoleGroup() {
+  const isCollapsed = ():boolean => (hasErrorWarning() ? false : !!config.collapsed)
+  const groupStartTime = ():string => (config.showTime ? startTime : '')
+
+  function autoConsoleGroup(): void {
     if (consoleQueue.length === 0) {
       resetConsoleGroup()
       return
@@ -67,34 +63,35 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       NORMAL_ITALIC,
     )
 
-    for (const [key, ...args] of consoleQueue)
+    for (const [key, ...args] of consoleQueue) {
       (console[key as keyof Console] as (...args: any[]) => void)(...args)
+    }
 
     console.groupEnd()
     resetConsoleGroup()
   }
 
-  function startGroup() {
+  function startGroup(): void {
     startTime = getStartTime()
     // double microtask to ensure the output is called last
     queueMicrotask(() => queueMicrotask(autoConsoleGroup))
   }
 
-  function pushToConsoleQueue(key: string, ...args: any[]) {
+  function pushToConsoleQueue(key: string, ...args: any[]): void {
     if (consoleQueue.length === 0) startGroup()
     consoleQueue.push([key, ...args])
   }
 
-  function time(label = DEFAULT) {
+  function time(label = DEFAULT): void {
     timers[label] = performance.now()
   }
 
-  function timeLog(label = DEFAULT, ...args: any[]) {
+  function timeLog(label = DEFAULT, ...args: any[]): void {
     const now = performance.now() - timers[label]
     pushToConsoleQueue('log', `${label}: ${now} ms`, ...args)
   }
 
-  function timeEnd(label = DEFAULT) {
+  function timeEnd(label = DEFAULT): void {
     timeLog(label)
     delete timers[label]
   }
@@ -104,7 +101,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     (...args: any[]) => pushToConsoleQueue(key, ...args),
   ]
 
-  // @ts-ignore
+  // @ts-expect-error: TS has a meltdown returning a dynamic object at runtime with known keys
   return {
     ...wrap(config, setValue(config)),
     ...wrap(console, reflectConsole),
@@ -113,6 +110,9 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       console[key as keyof Console] as (...args: any[]) => void,
     ]),
     endAutoGroup: autoConsoleGroup,
+    event: (value: string): void => {
+      config.event = value
+    },
     purge: resetConsoleQueue,
     time,
     timeEnd,

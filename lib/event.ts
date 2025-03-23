@@ -3,7 +3,7 @@ type Config = {
   defaultEvent?: string
 } & Record<string, any>
 
-export default (config: Config) => {
+export default (config: Config):string => {
   const event = config.event || config.defaultEvent
   return event ? `${event} ` : ''
 }

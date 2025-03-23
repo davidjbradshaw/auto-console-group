@@ -1,6 +1,6 @@
-export default function time() {
+export default function time():string {
   const now = new Date()
-  const padTime = (key: 'Hours' | 'Minutes' | 'Seconds' | 'Milliseconds', targetLength: number): string => 
+  const padTime = (key: 'Hours' | 'Minutes' | 'Seconds' | 'Milliseconds', targetLength: number): string =>
     now[`get${key}` as 'getHours' | 'getMinutes' | 'getSeconds' | 'getMilliseconds']().toString().padStart(targetLength, '0')
 
   const hours = padTime('Hours', 2)
