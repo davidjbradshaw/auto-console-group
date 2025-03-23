@@ -1,8 +1,6 @@
 <img src="./img/blacker.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
 
-
 > This package has been renamed to [auto-console-group](https://www.npmjs.com/package/auto-console-group)
-
 
 # Introduction
 
@@ -70,15 +68,11 @@ Force the current group to output to the browser console. Any logs created after
 
 ### event(_string_)
 
-Set the event type part of the group heading for the current event loop.
+Set the event type part of the group heading for just the current event loop.
 
 ### purge()
 
 Remove all messages in the current output queue.
-
-<!--  
-_Note When using `deferConsole()` the `timer`, `trace` and `profile` console methods won't give accurate results, as they are no longer running in the main task context_.
--->
 
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
