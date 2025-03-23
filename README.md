@@ -1,5 +1,9 @@
 <img src="./img/blacker.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
 
+
+> This package has been renamed to [auto-console-group](https://www.npmjs.com/package/auto-console-group)
+
+
 # Introduction
 
 Tame the JS console by **automagically grouping console message**.
