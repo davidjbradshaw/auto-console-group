@@ -1,7 +1,7 @@
 const { fromEntries, keys } = Object
 
-type SetValueEntry = [string, (value: any) => void]
-type Entry = [string, (...args: any[]) => void]
+export type Entry = [string, (...args: any[]) => void]
+type ValueEntry = [string, (value: any) => void]
 
 type Obj = Record<string, any>
 type Func = (key: string) => Entry
@@ -11,7 +11,7 @@ type Target = {
 }
 
 export const setValue = (target: Target) =>
-  (key: string): SetValueEntry => [
+  (key: string): ValueEntry => [
     key,
     function (value: any): void {
       target[key] = value

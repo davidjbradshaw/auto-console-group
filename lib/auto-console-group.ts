@@ -8,7 +8,7 @@ import {
 } from './defaults'
 import getEvent from './event'
 import getStartTime from './time'
-import wrap, { setValue } from './wrap-object'
+import wrap, { Entry, setValue } from './wrap-object'
 
 type AutoConsoleGroup = Omit<Console, 'time' | 'timeEnd' | 'timeLog'> & {
   event: (arg0: string) => void
@@ -96,7 +96,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     delete timers[label]
   }
 
-  const reflectConsole = (key: string): [string, (...args: any[]) => void] => [
+  const reflectConsole = (key: string): Entry => [
     key,
     (...args: any[]) => pushToConsoleQueue(key, ...args),
   ]
