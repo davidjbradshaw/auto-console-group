@@ -1,12 +1,12 @@
 export default function time():string {
   const now = new Date()
-  const padTime = (key: 'Hours' | 'Minutes' | 'Seconds' | 'Milliseconds', targetLength: number): string =>
-    now[`get${key}` as 'getHours' | 'getMinutes' | 'getSeconds' | 'getMilliseconds']().toString().padStart(targetLength, '0')
+  const padTime = (key: 'getHours' | 'getMinutes' | 'getSeconds' | 'getMilliseconds', targetLength: number): string =>
+    now[key]().toString().padStart(targetLength, '0')
 
-  const hours = padTime('Hours', 2)
-  const minutes = padTime('Minutes', 2)
-  const seconds = padTime('Seconds', 2)
-  const milliseconds = padTime('Milliseconds', 3)
+  const hours = padTime('getHours', 2)
+  const minutes = padTime('getMinutes', 2)
+  const seconds = padTime('getSeconds', 2)
+  const milliseconds = padTime('getMilliseconds', 3)
 
   return `@ ${hours}:${minutes}:${seconds}.${milliseconds}`
 }

@@ -11,10 +11,10 @@ import getStartTime from './time'
 import wrap, { Entry, setValue } from './wrap-object'
 
 type AutoConsoleGroup = Omit<Console, 'time' | 'timeEnd' | 'timeLog'> & {
-  event: (arg0: string) => void
-  label: (arg0: string) => void
-  collapsed: (arg0: boolean) => void
-  showTime: (arg0: boolean) => void
+  event: (value: string) => void
+  label: (value: string) => void
+  collapsed: (value: boolean) => void
+  showTime: (value: boolean) => void
   endAutoGroup: () => void
   purge: () => void
   time: (label?: string) => void
