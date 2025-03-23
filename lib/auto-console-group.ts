@@ -110,9 +110,6 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       console[key as keyof Console] as (...args: any[]) => void,
     ]),
     endAutoGroup: autoConsoleGroup,
-    event: (value: string): void => {
-      config.event = value
-    },
     purge: resetConsoleQueue,
     time,
     timeEnd,
