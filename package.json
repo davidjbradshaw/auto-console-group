@@ -1,11 +1,11 @@
 {
-  "name": "auto-group-console",
+  "name": "auto-console-group",
   "description": "Automagically group console messages",
   "version": "1.1.0-beta.1",
   "author": "David J. Bradshaw",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidjbradshaw/auto-group-console/issues"
+    "url": "https://github.com/davidjbradshaw/auto-console-group/issues"
   },
   "files": [
     "dist",
@@ -24,13 +24,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidjbradshaw/auto-group-console.git"
+    "url": "git+https://github.com/davidjbradshaw/auto-console-group.git"
   },
   "keywords": [
     "console",
     "group"
   ],
-  "homepage": "https://github.com/davidjbradshaw/auto-group-console#readme",
+  "homepage": "https://github.com/davidjbradshaw/auto-console-group#readme",
   "devDependencies": {
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",
