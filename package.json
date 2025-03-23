@@ -1,7 +1,7 @@
 {
   "name": "auto-console-group",
   "description": "Automagically group console messages",
-  "version": "1.1.1",
+  "version": "1.1.1-beta.1",
   "author": "David J. Bradshaw",
   "license": "MIT",
   "bugs": {
@@ -12,6 +12,7 @@
   ],
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -16,7 +16,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/index.js'),
+      entry: resolve(__dirname, 'lib/index.ts'),
       name: 'auto-console-group',
       // the proper extensions will be added
       fileName: 'index',

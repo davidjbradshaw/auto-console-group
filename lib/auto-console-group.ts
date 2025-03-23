@@ -6,7 +6,6 @@ import getEvent from './event'
 import getStartTime from './time'
 import wrap, { setValue } from './wrap-object'
 
-
 type AutoConsoleGroup = Console & {
   event: string
   label: string
@@ -19,16 +18,22 @@ type AutoConsoleGroup = Console & {
   timeLog: (label?: string, ...args: any[]) => void
 }
 
+type AutoConsoleGroupOptions = {
+  defaultEvent?: string
+  event?: string
+  label?: string
+  collapsed?: boolean
+  showTime?: boolean
+}
+
 type Timers = {
   [index: string]: number
 }
 
-type AutoConsoleGroupOptions = Partial<typeof defaultConfig> & object;
-
 export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGroup {
   const timers: Timers = {}
   const consoleQueue: [string, ...any[]][] = []
-  const config: typeof defaultConfig & AutoConsoleGroupOptions = {
+  const config: AutoConsoleGroupOptions = {
     ...defaultConfig,
     ...options,
   }

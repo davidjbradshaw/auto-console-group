@@ -6,6 +6,6 @@
  *  @license     MIT
  */
 
-import createDeferConsole from './defer-console'
+import createConsoleGroup from './auto-console-group'
 
-export default createDeferConsole
+export default createConsoleGroup

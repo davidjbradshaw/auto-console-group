@@ -5,6 +5,7 @@
     "window": true
   },
   "rules": {
+    "@typescript-eslint/semi": "off",
     "func-names": "off",
     "no-confusing-arrow": "off",
     "no-console": "off",
