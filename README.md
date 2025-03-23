@@ -1,4 +1,4 @@
-<img src="./img/logo.svg" alt="Auto-Console-Group" label="" style="margin-bottom: -2px; width: 75%">
+<img src="./img/logo-dark.svg" alt="Auto-Console-Group" label="" style="margin-bottom: -2px; width: 75%">
 
 # Introduction
 
