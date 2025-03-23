@@ -1,4 +1,4 @@
-<img src="./img/blacker.svg" alt="Auto-Group-Console" label="" style="margin-bottom: -2px; width: 75%">
+<img src="./img/logo-dark.svg" alt="Auto-Console-Group" label="" style="margin-bottom: -2px; width: 75%">
 
 # Introduction
 
@@ -18,10 +18,10 @@ _Above created by [example.js](./example.js)_.
 
 ## Install
 
-Install _auto-group-console_ via npm.
+Install _auto-console-group_ via npm.
 
 ```sh
-npm install auto-group-console
+npm install auto-console-group
 ```
 
 ## Setup
@@ -29,7 +29,7 @@ npm install auto-group-console
 The `createAutoGroupConsole()` creates a console object with all the same methods as the regular `console` object.
 
 ```js
-import createAutoGroupConsole from 'auto-group-console'
+import createAutoGroupConsole from 'auto-console-group'
 
 const groupConsole = createAutoGroupConsole({ options })
 
