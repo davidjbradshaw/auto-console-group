@@ -2,7 +2,7 @@
 
 # Introduction
 
-Tame the JS console by **automagically grouping console message**.
+Tame the JS console by **automagically grouping console messages**.
 
  * **Simple**: Drop in replacement for the full console API.
  * **Automatic**: Groups messages by each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop).
