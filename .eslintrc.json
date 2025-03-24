@@ -16,6 +16,7 @@
     "semi": ["error", "never"],
     "eslint-comments/no-unlimited-disable": "off",
     "unicorn/no-abusive-eslint-disable": "off",
+    "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "unicorn/no-array-callback-reference": "off",
     "unicorn/prefer-export-from": "off"
