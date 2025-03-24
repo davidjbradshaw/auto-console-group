@@ -48,7 +48,7 @@ The following options can be passed to `createAutoConsoleGroup`.
 ```js
 {
   label: 'label',          // First part of the group heading
-  collapsed: false,        // Show group expanded or collapsed
+  collapsed: false,        // Show groups expanded or collapsed
   defaultEvent: 'event',   // Second part of the group heading, shown in bold
   showTime: true,          // Display time in the group heading
 }
