@@ -5,5 +5,5 @@ type Config = {
 
 export default (config: Config):string => {
   const event = config.event || config.defaultEvent
-  return event ? `${event} ` : ''
+  return event ? `${event}` : ''
 }
