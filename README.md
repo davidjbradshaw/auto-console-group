@@ -14,7 +14,7 @@ A more readable console output in a couple of minutes.
 
 <img src="./img/example.png" alt="example output" label="">
 
-_Above created by [example.ts](./example.ts).
+_Above created by [example.ts](./example.ts)_.
 
 ## Install
 
