@@ -4,18 +4,14 @@ import { fileURLToPath } from 'node:url'
 
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import pluginExternal from 'vite-plugin-external'
+
+import pkg from './package.json'
 
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
-    pluginExternal({
-      externals: {
-        'auto-group-console': 'createConsoleGroup',
-      },
-    }),
     dts({
       insertTypesEntry: true,
     }),
@@ -28,6 +24,7 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
+      external: Object.keys((pkg).dependencies || {}),
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
