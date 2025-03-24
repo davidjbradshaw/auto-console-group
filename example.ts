@@ -1,35 +1,35 @@
-import createAutoGroupConsole from './lib/index'
+import createAutoConsoleGroup from './lib/index'
 
 const COLLAPSED = 'collapsed log'
 
-const autoGroupConsole = createAutoGroupConsole({
+const autoConsoleGroup = createAutoConsoleGroup({
   label: 'Auto Group',
   defaultEvent: 'Event',
 })
 
-const collapsedConsole = createAutoGroupConsole({
+const collapsedConsole = createAutoConsoleGroup({
   label: 'Auto Collapsed Group',
   collapsed: true,
 })
 
-const timelessConsole = createAutoGroupConsole({
+const timelessConsole = createAutoConsoleGroup({
   label: 'Group without event and time',
   showTime: false,
 })
 
-autoGroupConsole.time('myTimer')
+autoConsoleGroup.time('myTimer')
 
 setTimeout(() => {
-  autoGroupConsole.log('This will be logged at the end of the current Event Loop')
-  autoGroupConsole.timeLog('myTimer', 'This will be logged with the console.timeLog')
+  autoConsoleGroup.log('This will be logged at the end of the current Event Loop')
+  autoConsoleGroup.timeLog('myTimer', 'This will be logged with the console.timeLog')
 }, 37)
 
 setTimeout(() => {
-  autoGroupConsole.count('count')
-  autoGroupConsole.event('myEvent')
-  autoGroupConsole.label('myLabel')
-  autoGroupConsole.count('count')
-  autoGroupConsole.timeLog('myTimer')
+  autoConsoleGroup.count('count')
+  autoConsoleGroup.event('myEvent')
+  autoConsoleGroup.label('myLabel')
+  autoConsoleGroup.count('count')
+  autoConsoleGroup.timeLog('myTimer')
 }, 486)
 
 setTimeout(() => {
@@ -54,9 +54,9 @@ setTimeout(() => {
 }, 1235)
 
 setTimeout(() => {
-  autoGroupConsole.count('count')
-  autoGroupConsole.event('myEvent')
-  autoGroupConsole.label('myLabel')
-  autoGroupConsole.count('count')
-  autoGroupConsole.timeEnd('myTimer')
+  autoConsoleGroup.count('count')
+  autoConsoleGroup.event('myEvent')
+  autoConsoleGroup.label('myLabel')
+  autoConsoleGroup.count('count')
+  autoConsoleGroup.timeEnd('myTimer')
 }, 1486)

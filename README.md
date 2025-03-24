@@ -5,7 +5,7 @@
 Tame the JS console by **automagically grouping console messages**.
 
  * **Simple**: Drop in replacement for the full console API.
- * **Automatic**: Groups messages by each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop).
+ * **Automatic**: Groups messages by each [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop) iteration.
  * **Easier Debugging**: Makes it much clearer to see what is going on in your app.
  * **Adds Time Stamps**: Each grouping can be timestamped, to help better see what is happening.
  * **Reliable**: Uses a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) to ensure the message group is always closed on time.
@@ -26,24 +26,24 @@ npm install auto-console-group
 
 ## Setup
 
-The `createAutoGroupConsole()` creates a console object with all the same methods as the regular `console` object.
+The `createAutoConsoleGroup()` creates a console object with all the same methods as the regular `console` object.
 
 ```js
-import createAutoGroupConsole from 'auto-console-group'
+import createAutoConsoleGroup from 'auto-console-group'
 
-const groupConsole = createAutoGroupConsole({ options })
+const consoleGroup = createAutoConsoleGroup({ options })
 
-// All console methods are reflected on groupConsole
-groupConsole.log('Log message')
-groupConsole.table(['foo', 'bar'])
-groupConsole.count('Counter')
+// All console methods are reflected on consoleGroup
+consoleGroup.log('Log message')
+consoleGroup.table(['foo', 'bar'])
+consoleGroup.count('Counter')
 ```
 
 > _If their is an uncaught error in you code, the logs leading up to the error will be displayed in a group directly after the error is logged to the console_.
 
 ## Options
 
-The following options can be passed to `createAutoGroupConsole`.
+The following options can be passed to `createAutoConsoleGroup`.
 
 ```js
 {
