@@ -72,5 +72,17 @@ Set the event type part of the group heading for just the current event loop ite
 
 Remove all messages in the current output queue.
 
+## Helpers
+
+To assist with colouring console messages, the package also contains two consts that will return the current hex codes for highlighting log message.
+
+### HIGHLIGHT
+
+The default console highlight colour, based on dark/light mode.
+
+### FOREGROUND
+
+The current console foreground colour, based on dark/light mode.
+
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
