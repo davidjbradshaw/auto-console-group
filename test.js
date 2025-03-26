@@ -24,7 +24,7 @@ autoConsoleGroup.time('myTimer')
 setTimeout(() => {
   autoConsoleGroup.log('Groups are logged at the end of the current Event Loop iteration')
   autoConsoleGroup.timeLog('myTimer', 'Logged with console.timeLog()')
-}, 37)
+}, 1)
 
 setTimeout(() => {
   autoConsoleGroup.count(COUNT)
@@ -32,7 +32,7 @@ setTimeout(() => {
   autoConsoleGroup.label('myLabel')
   autoConsoleGroup.count(COUNT)
   autoConsoleGroup.timeLog('myTimer')
-}, 486)
+}, 2)
 
 setTimeout(() => {
   collapsedConsole.count(COLLAPSED)
@@ -40,20 +40,20 @@ setTimeout(() => {
   collapsedConsole.count(COLLAPSED)
   collapsedConsole.event('myEvent')
   collapsedConsole.countReset(COLLAPSED)
-}, 1234)
+}, 3)
 
 setTimeout(() => {
   collapsedConsole.count(COLLAPSED)
   collapsedConsole.warn('A warning will force a collapsed group to expand')
   collapsedConsole.count(COLLAPSED)
   collapsedConsole.event('myEvent')
-}, 1235)
+}, 4)
 
 setTimeout(() => {
   timelessConsole.count(COUNT)
   timelessConsole.count(COUNT)
   timelessConsole.count(COUNT)
-}, 1235)
+}, 5)
 
 setTimeout(() => {
   autoConsoleGroup.count(COUNT)
@@ -61,4 +61,4 @@ setTimeout(() => {
   autoConsoleGroup.label('myLabel')
   autoConsoleGroup.count(COUNT)
   autoConsoleGroup.timeEnd('myTimer')
-}, 1486)
+}, 6)
