@@ -1,7 +1,7 @@
 {
   "name": "auto-console-group",
   "description": "Automagically group console messages",
-  "version": "1.1.1",
+  "version": "1.1.1-beta.5",
   "author": "David J. Bradshaw",
   "license": "MIT",
   "bugs": {
@@ -10,6 +10,12 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +25,8 @@
     "build": "tsc && vite build --mode production",
     "preview": "vite preview",
     "prepublishOnly": "npm i && npm run test && npm run build",
-    "test": "eslint lib/*.js *.js"
+    "pretest": "eslint lib/*.ts *.js *.ts",
+    "test": "node ./test.js"
   },
   "repository": {
     "type": "git",
