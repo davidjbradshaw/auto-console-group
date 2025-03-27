@@ -13,7 +13,7 @@ type Target = {
 export const setValue = (target: Target) =>
   (key: string): ValueEntry => [
     key,
-    function (value: any): void {
+    function (value: string | boolean): void {
       target[key] = value
     },
   ]
