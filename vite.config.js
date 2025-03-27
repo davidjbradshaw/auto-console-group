@@ -28,7 +28,9 @@ export default defineConfig({
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
-        globals: {},
+        globals: {
+          name: 'auto-console-group',
+        },
       },
     },
   },

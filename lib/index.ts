@@ -8,7 +8,7 @@ const consoleGroup = createConsoleGroup({
 })
 
 consoleGroup.warn('%cThis package has been renamed to %cauto-console-group%c', BOLD, HIGHLIGHT)
-consoleGroup.log('Please update your imports to use the new package name')
+consoleGroup.log('%cPlease update your imports to use the new package name', BOLD)
 consoleGroup.info('%chttps://www.npmjs.com/package/auto-console-group', HIGHLIGHT)
 
 export default createConsoleGroup

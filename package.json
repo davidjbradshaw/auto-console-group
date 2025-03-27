@@ -10,10 +10,15 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "main": "dist/index.umd.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --mode production",
@@ -30,6 +35,9 @@
     "group"
   ],
   "homepage": "https://github.com/davidjbradshaw/auto-group-console#readme",
+  "dependencies": {
+    "auto-console-group": "^1.1.1"
+  },
   "devDependencies": {
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",
@@ -78,8 +86,5 @@
     "vite": "^6.2.2",
     "vite-plugin-dts": "^4.5.3",
     "vite-plugin-external": "^6.0.1"
-  },
-  "dependencies": {
-    "auto-console-group": "^1.1.1"
   }
 }
