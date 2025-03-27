@@ -52,6 +52,8 @@ setTimeout(() => {
 setTimeout(() => {
   timelessConsole.count(COUNT)
   timelessConsole.count(COUNT)
+  timelessConsole.count(COUNT)
+  timelessConsole.count(COUNT)
   timelessConsole.event('purge')
   timelessConsole.purge() // removes above logs from the group
   timelessConsole.count(COUNT)
