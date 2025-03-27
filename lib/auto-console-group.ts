@@ -8,27 +8,25 @@ import {
 } from './defaults'
 import getEvent from './event'
 import getStartTime from './time'
-import wrap, { Entry, setValue } from './wrap-object'
+import wrap, { createNonDeferrable, Entry, setValue } from './wrap-object'
 
-type AutoConsoleGroup = Omit<Console, 'time' | 'timeEnd' | 'timeLog'> & {
-  event: (value: string) => void
-  errorBoundary: (func: Function) => Function
-  label: (value: string) => void
+type AutoConsoleGroup = Console & {
   collapsed: (value: boolean) => void
-  showTime: (value: boolean) => void
   endAutoGroup: () => void
+  errorBoundary: (func: Function) => Function
+  event: (value: string) => void
+  label: (value: string) => void
   purge: () => void
-  time: (label?: string) => void
-  timeEnd: (label?: string) => void
-  timeLog: (label?: string, ...args: unknown[]) => void
+  showTime: (value: boolean) => void
 }
 
 type AutoConsoleGroupOptions = Omit<AutoConsoleGroupDefaultOptions, 'event'>
 
-type Timers = Record<string, number>
+type Counter = Record<string, number>
 
 export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGroup {
-  const timers: Timers = {}
+  const timers: Counter = {}
+  const counters: Counter = {}
   const consoleQueue: [string, ...any[]][] = []
   const config: AutoConsoleGroupDefaultOptions = {
     ...defaultConfig,
@@ -96,6 +94,19 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       return retValue
     }
 
+  function count(label = DEFAULT): void {
+    if (counters[label]) {
+      counters[label] += 1
+    } else {
+      counters[label] = 1
+    }
+    pushToConsoleQueue(LOG, `${label}: ${counters[label]}`)
+  }
+
+  function countReset(label = DEFAULT): void {
+    delete counters[label]
+  }
+
   function time(label = DEFAULT): void {
     timers[label] = performance.now()
   }
@@ -119,10 +130,9 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
   return {
     ...wrap(config, setValue(config)),
     ...wrap(console, reflectConsole),
-    ...wrap(nonDeferrable, (key: string) => [
-      key,
-      console[key as keyof Console] as (...args: any[]) => void,
-    ]),
+    ...wrap(nonDeferrable, createNonDeferrable),
+    count,
+    countReset,
     endAutoGroup: autoConsoleGroup,
     errorBoundary,
     purge: resetConsoleQueue,
