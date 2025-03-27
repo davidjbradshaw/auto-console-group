@@ -52,13 +52,23 @@ setTimeout(() => {
 setTimeout(() => {
   timelessConsole.count(COUNT)
   timelessConsole.count(COUNT)
+  timelessConsole.event('purge')
+  timelessConsole.purge() // removes above logs from the group
   timelessConsole.count(COUNT)
 }, 5)
 
+setTimeout(collapsedConsole.errorBoundary(() => {
+  collapsedConsole.count(COUNT)
+  collapsedConsole.event('TYPE_ERROR')
+  collapsedConsole.label('errorBoundary')
+  collapsedConsole.showTime(false)
+  collapsedConsole.count(COUNT)
+  throw new TypeError('Error in errorBoundary')
+}), 6)
+
 setTimeout(() => {
   autoConsoleGroup.count(COUNT)
-  autoConsoleGroup.event('myEvent')
+  autoConsoleGroup.event('endTimes')
   autoConsoleGroup.label('myLabel')
-  autoConsoleGroup.count(COUNT)
   autoConsoleGroup.timeEnd('myTimer')
-}, 6)
+}, 7)

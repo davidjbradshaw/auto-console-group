@@ -1,5 +1,5 @@
 import {
-  BOLD, DEFAULT, NORMAL, NORMAL_ITALIC,
+  BOLD, DEFAULT, ERROR, LOG, NORMAL, NORMAL_ITALIC,
 } from './consts'
 import {
   AutoConsoleGroupDefaultOptions,
@@ -12,6 +12,7 @@ import wrap, { Entry, setValue } from './wrap-object'
 
 type AutoConsoleGroup = Omit<Console, 'time' | 'timeEnd' | 'timeLog'> & {
   event: (value: string) => void
+  errorBoundary: (func: Function) => Function
   label: (value: string) => void
   collapsed: (value: boolean) => void
   showTime: (value: boolean) => void
@@ -82,13 +83,26 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     consoleQueue.push([key, ...args])
   }
 
+  const errorBoundary = (func: Function):Function =>
+    (...args: any[]) => {
+      let retValue
+
+      try {
+        retValue = func(...args)
+      } catch (error) {
+        pushToConsoleQueue(ERROR, error)
+      }
+
+      return retValue
+    }
+
   function time(label = DEFAULT): void {
     timers[label] = performance.now()
   }
 
   function timeLog(label = DEFAULT, ...args: any[]): void {
     const now = performance.now() - timers[label]
-    pushToConsoleQueue('log', `${label}: ${now} ms`, ...args)
+    pushToConsoleQueue(LOG, `${label}: ${now} ms`, ...args)
   }
 
   function timeEnd(label = DEFAULT): void {
@@ -110,6 +124,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       console[key as keyof Console] as (...args: any[]) => void,
     ]),
     endAutoGroup: autoConsoleGroup,
+    errorBoundary,
     purge: resetConsoleQueue,
     time,
     timeEnd,

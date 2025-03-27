@@ -9,3 +9,8 @@ export const BLACK = 'color: #1F1F1F;'
 export const WHITE = 'color: #E3E3E3;'
 
 export const DEFAULT = 'default'
+export const ERROR = 'error'
+export const WARN = 'warn'
+export const INFO = 'info'
+export const LOG = 'log'
+export const DEBUG = 'debug'
