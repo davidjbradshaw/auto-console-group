@@ -90,7 +90,7 @@ runs directly after the main Event Loop task completes. This still works in the 
 microtask runs after the main task has terminated. The current log group will be displayed after the error, rather than in
 front of it.
 
-To overcome this limitation, you can create an Error Boundary, which will catch any runtime error and included them in the
+To overcome this limitation, you can create an Error Boundary, which will catch runtime errors and included them in the
 current console group.
 
 ```js
