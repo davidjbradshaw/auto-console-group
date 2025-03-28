@@ -26,7 +26,8 @@ npm install auto-console-group
 
 ## Setup
 
-The `createAutoConsoleGroup()` creates a console object with all the same methods as the regular `console` object.
+The `createAutoConsoleGroup()` creates a console object with all the same methods as the regular `console` object,
+plus a few additional [methods](#methods) to control how a group is displayed.
 
 ```js
 import createAutoConsoleGroup from 'auto-console-group'
