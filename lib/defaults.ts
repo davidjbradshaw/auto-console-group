@@ -1,6 +1,7 @@
 export type AutoConsoleGroupDefaultOptions = {
   collapsed?: boolean
   defaultEvent?: string | undefined
+  defaultLabel?: string | undefined
   event?: string | undefined
   label?: string
   showTime?: boolean
@@ -9,8 +10,9 @@ export type AutoConsoleGroupDefaultOptions = {
 export const defaultConfig: AutoConsoleGroupDefaultOptions = {
   collapsed: false,
   defaultEvent: undefined,
+  defaultLabel: 'AutoConsoleGroup',
   event: undefined,
-  label: 'AutoConsoleGroup',
+  label: undefined,
   showTime: true,
 }
 

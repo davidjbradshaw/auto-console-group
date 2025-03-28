@@ -7,6 +7,7 @@ import {
   nonDeferrable,
 } from './defaults'
 import getEvent from './event'
+import getLabel from './label'
 import getStartTime from './time'
 import wrap, { createNonDeferrable, Entry, setValue } from './wrap-object'
 
@@ -20,17 +21,17 @@ type AutoConsoleGroup = Console & {
   showTime: (value: boolean) => void
 }
 
-type AutoConsoleGroupOptions = Omit<AutoConsoleGroupDefaultOptions, 'event'>
-
 type Counter = Record<string, number>
 
-export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGroup {
+export default function (options: AutoConsoleGroupDefaultOptions = {}): AutoConsoleGroup {
   const timers: Counter = {}
   const counters: Counter = {}
   const consoleQueue: [string, ...any[]][] = []
   const config: AutoConsoleGroupDefaultOptions = {
     ...defaultConfig,
     ...options,
+    defaultEvent: options.defaultEvent || options.event,
+    defaultLabel: options.defaultLabel || options.label || defaultConfig.defaultLabel,
   }
 
   let startTime: string
@@ -41,6 +42,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
 
   function resetConsoleGroup(): void {
     delete config.event
+    delete config.label
     resetConsoleQueue()
   }
 
@@ -56,7 +58,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     }
 
     console[isCollapsed() ? 'groupCollapsed' : 'group'](
-      `%c${config.label}%c ${getEvent(config)} %c${groupStartTime()}`,
+      `%c${getLabel(config)}%c ${getEvent(config)} %c${groupStartTime()}`,
       NORMAL,
       BOLD,
       NORMAL_ITALIC,

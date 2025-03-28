@@ -5,6 +5,7 @@
     "window": true
   },
   "rules": {
+    "@typescript-eslint/no-throw-literal": "off",
     "@typescript-eslint/semi": "off",
     "const-case/uppercase": "off",
     "func-names": "off",
