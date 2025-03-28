@@ -86,9 +86,9 @@ _When the_ `collapsed` _option is set to __true__, the group will automatically 
 
 ## Error Boundaries
 
-This library work by storing console messages in an array and outputting the collected list of messages via a microtask that
-runs directly after the main Event Loop task completes. This still works in the event of a runtime error, however, as the
-microtask runs after the main task has terminated. The current log group will be displayed after the error, rather than in
+This library works by storing console messages in an array and outputting the collected list of messages via a microtask that
+runs directly after the main Event Loop task completes, and will continue to work even in the  event of a runtime error; however, as the
+microtask runs after the main task has terminated, the current log group will be displayed after the error, rather than in
 front of it.
 
 To overcome this limitation, you can create an Error Boundary, which will catch runtime errors and included them in the
