@@ -31,7 +31,7 @@ The `createAutoConsoleGroup()` creates a console object with all the same method
 ```js
 import createAutoConsoleGroup from 'auto-console-group'
 
-const consoleGroup = createAutoConsoleGroup({ options })
+const consoleGroup = createAutoConsoleGroup({ label: 'autoConsoleGroup' })
 
 // All console methods are reflected on consoleGroup
 consoleGroup.log('Log message')
