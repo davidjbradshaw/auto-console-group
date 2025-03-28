@@ -83,7 +83,24 @@ The following options can be passed to `createAutoConsoleGroup`.
 }
 ```
 
-> _When the_ `collapsed` _option is set to **true**, the group will automatically open if a **warning** or **error** is included in the group_.
+## Error Boundaries
+
+This library work by storing console messages in an array and outputting the collected list of messages via a microtask that
+runs directly after the main Event Loop task completes. This still works in the event of a runtime error, however, as the
+microtask runs after the main task has terminated. The current log group will be displayed after the error, rather than in
+front of it.
+
+To overcome this limitation, you can create an Error Boundary, which will catch any runtime error and included them in the
+current console group.
+
+```js
+const consoleGroup = createAutoConsoleGroup({ options })
+
+consoleGroup.errorBoundary(() => {
+  consoleGroup.log('Error Boundary example')
+  throw new Error('Runtime error')
+})
+```
 
 ## Methods
 
@@ -93,7 +110,11 @@ In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/W
 
 Force the current group to output to the browser console. Any logs created after this call will appear in a new group.
 
-### event(_string_)
+### errorBoundary(_Function_)
+
+Create an error boundary around a function. This allows _auto-console-group_ to display runtime errors within the console group.
+
+### event(_String_)
 
 Set the event type part of the group heading for just the current event loop iteration.
 
