@@ -95,10 +95,10 @@ To overcome this limitation, you can create an Error Boundary, which will catch 
 current console group.
 
 ```js
-const consoleGroup = createAutoConsoleGroup({ options })
+const consoleGroup = createAutoConsoleGroup({ label: 'Error boundary example' })
 
 consoleGroup.errorBoundary(() => {
-  consoleGroup.log('Error Boundary example')
+  consoleGroup.log('Message before error')
   throw new Error('Runtime error')
 })
 ```
