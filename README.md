@@ -42,8 +42,6 @@ consoleGroup.count('Counter')
 consoleGroup.event('myEvent')
 ```
 
-> _If their is an uncaught error in you code, the logs leading up to the error will be displayed in a group directly after the error is logged to the console_.
-
 ## Group Heading
 
 The heading for each group is made up of three parts: **Label**, **Event** and **Time**.
