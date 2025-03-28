@@ -81,6 +81,8 @@ The following options can be passed to `createAutoConsoleGroup`.
 }
 ```
 
+_When the_ `collapsed` _option is set to __true__, the group will automatically open if a __warning__ or __error__ is included in the group_.
+
 ## Error Boundaries
 
 This library work by storing console messages in an array and outputting the collected list of messages via a microtask that
