@@ -82,30 +82,13 @@ The following options can be passed to `createAutoConsoleGroup`.
 }
 ```
 
-_When the_ `collapsed` _option is set to __true__, the group will automatically open if a __warning__ or __error__ is included in the group_.
-
-## Error Boundaries
-
-This library works by storing console messages in an array and outputting the collected list of messages via a microtask that
-runs directly after the main Event Loop task completes, and will continue to work even in the  event of a runtime error; however, as the
-microtask runs after the main task has terminated, the current log group will be displayed after the error, rather than in
-front of it.
-
-To overcome this limitation, you can create an Error Boundary, which will catch runtime errors and included them in the
-current console group.
-
-```js
-const consoleGroup = createAutoConsoleGroup({ label: 'Error boundary example' })
-
-consoleGroup.errorBoundary(() => {
-  consoleGroup.log('Message before error')
-  throw new Error('Runtime error')
-})
-```
+_When the_ `collapsed` _option is set to __true__, the group will automatically open if a __warning__ or __error__ is
+included in the group_.
 
 ## Methods
 
-In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/Web/API/console), the following methods are also available.
+In addition to the full [Console API](https://developer.mozilla.org/en-US/docs/Web/API/console), the following methods
+are also available.
 
 ### endAutoGroup()
 
@@ -113,7 +96,8 @@ Force the current group to output to the browser console. Any logs created after
 
 ### errorBoundary(_Function_)
 
-Create an error boundary around a function. This allows _auto-console-group_ to display runtime errors within the console group.
+Create an [error boundary](#error-boundaries) around a function. This allows _auto-console-group_ to display runtime
+errors within the console group.
 
 ### event(_String_)
 
@@ -125,7 +109,8 @@ Remove all messages in the current output queue.
 
 ## Helpers
 
-To assist with colouring console messages, the package also contains two consts that will return the current hex codes for highlighting log message.
+To assist with colouring console messages, the package also contains two consts that will return the current
+hex codes for highlighting log message.
 
 ### HIGHLIGHT
 
@@ -134,6 +119,26 @@ The default console highlight colour, based on dark/light mode.
 ### FOREGROUND
 
 The current console foreground colour, based on dark/light mode.
+
+## Error Boundaries
+
+This library works by storing console messages in an array and outputting the collected list of messages via
+a [Microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) that runs
+directly after the main Event Loop task completes, and will continue to work even in the  event of a runtime
+error; however, as the Microtask runs after the main task has terminated, the current log group will be displayed
+after the error, rather than in front of it.
+
+To overcome this limitation, you can create an Error Boundary, which will catch runtime errors and included them
+in the current console group.
+
+```js
+const consoleGroup = createAutoConsoleGroup({ label: 'Error boundary example' })
+
+consoleGroup.errorBoundary(() => {
+  consoleGroup.log('Message before error')
+  throw new Error('Runtime error')
+})
+```
 
 ---
 _&copy; 2025 David J. Bradshaw - License MIT_
