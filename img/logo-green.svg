@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="1295px" height="221px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+<svg width="1293px" height="221px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g transform="matrix(1,0,0,1,-72.539,-104.815)">
         <g>
             <g transform="matrix(0.881786,0,0,0.881786,-6.76186,-83.7988)">
@@ -20,11 +20,11 @@
                 </g>
             </g>
             <g transform="matrix(1,0,0,1,-18,15)">
-                <g transform="matrix(0.974492,0,0,0.974492,22.1046,8.54356)">
+                <g transform="matrix(0.974492,0,0,0.974492,21.1046,6.54356)">
                     <g transform="matrix(0.832898,0,0,0.832898,6.42367,-77.9089)">
                         <text x="398.87px" y="345.23px" style="font-family:'Helvetica-Bold', 'Helvetica';font-weight:700;font-size:129.037px;fill:rgb(229,229,229);">Auto-Console-Group</text>
                     </g>
-                    <g transform="matrix(1.16763,0,0,1.16763,-60.3063,-82.9014)">
+                    <g transform="matrix(1.16763,0,0,1.16763,-61.3325,-82.9014)">
                         <g transform="matrix(52.4802,0,0,52.4802,1251.56,310.063)">
                         </g>
                         <text x="346.648px" y="310.063px" style="font-family:'BradleyHandITCTT-Bold', 'Bradley Hand';font-weight:700;font-size:52.48px;fill:rgb(229,229,229);">Automagically group console messages</text>
