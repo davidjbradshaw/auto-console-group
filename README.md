@@ -2,8 +2,6 @@
 
 > This package has been renamed to [auto-console-group](https://www.npmjs.com/package/auto-console-group)
 
-# Introduction
-
 Tame the JS console by **automagically grouping console message**.
 
  * **Simple**: Drop in replacement for the full console API.
