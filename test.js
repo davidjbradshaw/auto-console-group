@@ -69,6 +69,7 @@ setTimeout(collapsedConsole.errorBoundary(() => {
 }), 6)
 
 setTimeout(() => {
+  autoConsoleGroup.assert(false, 'console.assert()')
   autoConsoleGroup.count(COUNT)
   autoConsoleGroup.event('endTimes')
   autoConsoleGroup.label('myLabel')
