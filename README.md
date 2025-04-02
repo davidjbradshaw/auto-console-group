@@ -24,6 +24,8 @@ Install _auto-console-group_ via npm.
 npm install auto-console-group
 ```
 
+Or download [auto-console-group.js](blob/main/auto-console-group.js)
+
 ## Setup
 
 The `createAutoConsoleGroup()` creates a console object with all the same methods as the regular `console` object,
