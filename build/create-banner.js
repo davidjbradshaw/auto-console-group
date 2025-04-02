@@ -15,5 +15,4 @@ export default () => `/*!
  *
  *  @copyright  (c) ${year}, ${pkg.author.name}. All rights reserved.
  */
-
 `
