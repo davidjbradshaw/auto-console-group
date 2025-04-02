@@ -1,5 +1,7 @@
 <img src="./img/logo-green.svg" alt="Auto-Console-Group" label="" style="margin-bottom: -2px; width: 75%">
 
+[![npm version](https://badge.fury.io/js/auto-console-group.svg)](https://badge.fury.io/js/auto-console-group)
+
 # Introduction
 
 Tame the JS console by **automagically grouping console messages**.
