@@ -1,8 +1,11 @@
 {
   "name": "auto-console-group",
   "description": "Automagically group console messages",
-  "version": "1.2.1",
-  "author": "David J. Bradshaw",
+  "version": "1.2.2",
+  "author": {
+    "name": "David J. Bradshaw",
+    "email": "info@iframe-resizer.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidjbradshaw/auto-console-group/issues"
@@ -24,7 +27,7 @@
     "dev": "vite",
     "build": "tsc && vite build --mode production",
     "preview": "vite preview",
-    "prepublishOnly": "npm i && npm run test && npm run build",
+    "prepublishOnly": "npm i && npm run test && npm run build && rm dist/example.d.ts",
     "pretest": "eslint lib/*.ts *.js *.ts --fix && npm run build",
     "test": "node ./test.js"
   },
@@ -81,8 +84,10 @@
     "eslint-plugin-switch-case": "^1.1.2",
     "eslint-plugin-unicorn": "^51.0.1",
     "eslint-plugin-xss": "^0.1.12",
+    "rollup-plugin-copy": "^3.5.0",
     "typescript": "^5.8.2",
     "vite": "^6.2.4",
+    "vite-plugin-banner": "^0.8.0",
     "vite-plugin-dts": "^4.5.3"
   }
 }
