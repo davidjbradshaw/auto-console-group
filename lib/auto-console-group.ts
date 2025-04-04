@@ -11,7 +11,7 @@ import getStartTime from './time'
 import wrap, { createNonDeferrable, Entry, setValue } from './wrap-object'
 
 type AutoConsoleGroup = Console & {
-  collapsed: (value: boolean) => void
+  expand: (value: boolean) => void
   endAutoGroup: () => void
   errorBoundary: (func: Function) => Function
   event: (value: string) => void
@@ -48,7 +48,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
 
   const hasErrorWarning = ():boolean => consoleQueue.some(([key]) => key === 'error' || key === 'warn')
 
-  const isCollapsed = ():boolean => (hasErrorWarning() ? false : !!config.collapsed)
+  const isExpanded = ():boolean => (hasErrorWarning() ? false : !config.expand)
   const groupStartTime = ():string => (config.showTime ? startTime : '')
 
   function autoConsoleGroup(): void {
@@ -57,7 +57,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       return
     }
 
-    console[isCollapsed() ? 'groupCollapsed' : 'group'](
+    console[isExpanded() ? 'group' : 'groupCollapsed'](
       `%c${config.label}%c ${getEvent(config)} %c${groupStartTime()}`,
       NORMAL,
       BOLD,
