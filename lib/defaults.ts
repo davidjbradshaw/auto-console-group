@@ -1,5 +1,5 @@
 export type AutoConsoleGroupDefaultOptions = {
-  collapsed?: boolean
+  expand?: boolean
   defaultEvent?: string | undefined
   event?: string | undefined
   label?: string
@@ -7,7 +7,7 @@ export type AutoConsoleGroupDefaultOptions = {
 }
 
 export const defaultConfig: AutoConsoleGroupDefaultOptions = {
-  collapsed: false,
+  expand: true,
   defaultEvent: undefined,
   event: undefined,
   label: 'AutoConsoleGroup',
