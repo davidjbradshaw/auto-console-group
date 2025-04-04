@@ -66,7 +66,7 @@ setTimeout(
     autoConsoleGroup.event('TypeError')
     autoConsoleGroup.label('errorBoundary')
     autoConsoleGroup.showTime(false)
-    autoConsoleGroup.collapsed(true)
+    autoConsoleGroup.expand(false)
     autoConsoleGroup.info('This group is contained within an errorBoundary')
     autoConsoleGroup.info('Errors are caught and logged to the consoleGroup')
     throw new TypeError('Error in errorBoundary')
@@ -76,7 +76,7 @@ setTimeout(
 
 setTimeout(() => {
   autoConsoleGroup.label('myLabel') // reset as we changed it above
-  autoConsoleGroup.collapsed(false) // reset as we changed it above
+  autoConsoleGroup.expand(true) // reset as we changed it above
   autoConsoleGroup.showTime(true) // reset as we changed it above
   autoConsoleGroup.count(COUNT)
   autoConsoleGroup.event('endTimes') // this resets after each group
