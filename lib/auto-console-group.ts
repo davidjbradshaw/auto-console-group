@@ -30,6 +30,8 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
   const consoleQueue: [string, ...any[]][] = []
   const config: AutoConsoleGroupDefaultOptions = {
     ...defaultConfig,
+    // @ts-expect-error: backwards compatibility
+    expand: !options.collapsed || defaultConfig.expanded,
     ...options,
   }
 

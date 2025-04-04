@@ -11,7 +11,7 @@ const autoConsoleGroup = createAutoConsoleGroup({
 
 const collapsedConsole = createAutoConsoleGroup({
   label: 'Auto Collapsed Group',
-  collapsed: true,
+  expand: false,
 })
 
 const timelessConsole = createAutoConsoleGroup({
