@@ -14,3 +14,9 @@ export const WARN = 'warn'
 export const INFO = 'info'
 export const LOG = 'log'
 export const DEBUG = 'debug'
+
+export const AUTO_EXPAND = Object.freeze({
+  assert: true,
+  error: true,
+  warn: true,
+})
