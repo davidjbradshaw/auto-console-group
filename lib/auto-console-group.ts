@@ -1,5 +1,11 @@
 import {
-  BOLD, DEFAULT, ERROR, LOG, NORMAL, NORMAL_ITALIC,
+  AUTO_EXPAND,
+  BOLD,
+  DEFAULT,
+  ERROR,
+  LOG,
+  NORMAL,
+  NORMAL_ITALIC,
 } from './consts'
 import {
   AutoConsoleGroupDefaultOptions,
@@ -46,9 +52,9 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     resetConsoleQueue()
   }
 
-  const hasErrorWarning = ():boolean => consoleQueue.some(([key]) => key === 'error' || key === 'warn')
+  const hasErrorWarning = ():boolean => consoleQueue.some(([key]) => key in AUTO_EXPAND)
 
-  const isExpanded = ():boolean => (hasErrorWarning() ? false : !config.expand)
+  const isExpanded = ():boolean => (hasErrorWarning() ? true : !!config.expand)
   const groupStartTime = ():string => (config.showTime ? startTime : '')
 
   function autoConsoleGroup(): void {
