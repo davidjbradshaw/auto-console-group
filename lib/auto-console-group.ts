@@ -42,7 +42,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     ...options,
   }
 
-  let startTime: string
+  let startTime: string = ''
 
   function resetConsoleQueue(): void {
     consoleQueue.length = 0
