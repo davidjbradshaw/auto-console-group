@@ -84,6 +84,11 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     if (startTime === '') startTime = getStartTime()
   }
 
+  function setEvent(event: string): void {
+    setStartTime()
+    config.event = event
+  }
+
   function startGroup(): void {
     setStartTime()
     // double microtask to ensure the output is called last
@@ -151,6 +156,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     countReset,
     endAutoGroup: autoConsoleGroup,
     errorBoundary,
+    event: setEvent,
     purge: resetConsoleQueue,
     time,
     timeEnd,
