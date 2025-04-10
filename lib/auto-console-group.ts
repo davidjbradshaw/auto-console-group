@@ -24,6 +24,7 @@ type AutoConsoleGroup = Console & {
   label: (value: string) => void
   purge: () => void
   showTime: (value: boolean) => void
+  touch: () => void
 }
 
 type AutoConsoleGroupOptions = Omit<AutoConsoleGroupDefaultOptions, 'event'>
@@ -45,6 +46,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
 
   function resetConsoleQueue(): void {
     consoleQueue.length = 0
+    startTime = ''
   }
 
   function resetConsoleGroup(): void {
@@ -78,8 +80,12 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     resetConsoleGroup()
   }
 
+  function setStartTime(): void {
+    if (startTime === '') startTime = getStartTime()
+  }
+
   function startGroup(): void {
-    startTime = getStartTime()
+    setStartTime()
     // double microtask to ensure the output is called last
     queueMicrotask(() => queueMicrotask(autoConsoleGroup))
   }
@@ -117,6 +123,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
   }
 
   function time(label = DEFAULT): void {
+    setStartTime()
     timers[label] = performance.now()
   }
 
@@ -148,5 +155,6 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     time,
     timeEnd,
     timeLog,
+    touch: setStartTime,
   }
 }
