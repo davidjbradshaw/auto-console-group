@@ -1,37 +1,37 @@
 // eslint-disable-next-line import/extensions
-import createAutoConsoleGroup from './dist/index.js'
+import createConsoleGroup from './dist/index.js'
 
 const COLLAPSED = 'collapsed log'
 const COUNT = 'console.count'
 
-const autoConsoleGroup = createAutoConsoleGroup({
+const console = createConsoleGroup({
   label: 'Auto Group',
   defaultEvent: 'Event',
 })
 
-const collapsedConsole = createAutoConsoleGroup({
+const collapsedConsole = createConsoleGroup({
   label: 'Auto Collapsed Group',
   expand: false,
 })
 
-const timelessConsole = createAutoConsoleGroup({
+const timelessConsole = createConsoleGroup({
   label: 'Group without event and time',
   showTime: false,
 })
 
-autoConsoleGroup.time('myTimer')
+console.time('myTimer')
 
 setTimeout(() => {
-  autoConsoleGroup.log('Groups are logged at the end of the current Event Loop iteration')
-  autoConsoleGroup.timeLog('myTimer', 'Logged with console.timeLog()')
+  console.log('Groups are logged at the end of the current Event Loop iteration')
+  console.timeLog('myTimer', 'Logged with console.timeLog()')
 }, 1)
 
 setTimeout(() => {
-  autoConsoleGroup.count(COUNT)
-  autoConsoleGroup.event('myEvent')
-  autoConsoleGroup.label('myLabel')
-  autoConsoleGroup.count(COUNT)
-  autoConsoleGroup.timeLog('myTimer')
+  console.count(COUNT)
+  console.event('myEvent')
+  console.label('myLabel')
+  console.count(COUNT)
+  console.timeLog('myTimer')
 }, 2)
 
 setTimeout(() => {
@@ -69,9 +69,9 @@ setTimeout(collapsedConsole.errorBoundary(() => {
 }), 6)
 
 setTimeout(() => {
-  autoConsoleGroup.assert(false, 'console.assert()')
-  autoConsoleGroup.count(COUNT)
-  autoConsoleGroup.event('endTimes')
-  autoConsoleGroup.label('myLabel')
-  autoConsoleGroup.timeEnd('myTimer')
+  console.assert(false, 'console.assert()')
+  console.count(COUNT)
+  console.event('endTimes')
+  console.label('myLabel')
+  console.timeEnd('myTimer')
 }, 7)
