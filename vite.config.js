@@ -33,7 +33,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/index.ts'),
-      name: 'createAutoConsoleGroup',
+      name: 'createConsoleGroup',
       // the proper extensions will be added
       fileName: 'index',
     },

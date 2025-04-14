@@ -1,36 +1,36 @@
-import createAutoConsoleGroup from './lib/index'
+import createConsoleGroup from './lib/index'
 
 const COLLAPSED = 'collapsed log'
 const COUNT = 'console.count'
 
-const autoConsoleGroup = createAutoConsoleGroup({
+const console = createConsoleGroup({
   label: 'Auto Group',
   defaultEvent: 'Event',
 })
 
-const collapsedConsole = createAutoConsoleGroup({
+const collapsedConsole = createConsoleGroup({
   label: 'Auto Collapsed Group',
   expand: false,
 })
 
-const timelessConsole = createAutoConsoleGroup({
+const timelessConsole = createConsoleGroup({
   label: 'Group without event and time',
   showTime: false,
 })
 
-autoConsoleGroup.time('myTimer')
+console.time('myTimer')
 
 setTimeout(() => {
-  autoConsoleGroup.log('Groups are logged at the end of the current Event Loop iteration')
-  autoConsoleGroup.timeLog('myTimer', 'Logged with console.timeLog()')
+  console.log('Groups are logged at the end of the current Event Loop iteration')
+  console.timeLog('myTimer', 'Logged with console.timeLog()')
 }, 37)
 
 setTimeout(() => {
-  autoConsoleGroup.count(COUNT)
-  autoConsoleGroup.event('myEvent')
-  autoConsoleGroup.label('myLabel')
-  autoConsoleGroup.count(COUNT)
-  autoConsoleGroup.timeLog('myTimer')
+  console.count(COUNT)
+  console.event('myEvent')
+  console.label('myLabel')
+  console.count(COUNT)
+  console.timeLog('myTimer')
 }, 486)
 
 setTimeout(() => {
@@ -56,30 +56,30 @@ setTimeout(() => {
 }, 1235)
 
 setTimeout(() => {
-  autoConsoleGroup.event('myEvent')
-  autoConsoleGroup.label('myLabel')
+  console.event('myEvent')
+  console.label('myLabel')
   // no group created, as we have not logged anything
 }, 1486)
 
 setTimeout(
-  autoConsoleGroup.errorBoundary(() => {
-    autoConsoleGroup.event('TypeError')
-    autoConsoleGroup.label('errorBoundary')
-    autoConsoleGroup.showTime(false)
-    autoConsoleGroup.expand(false)
-    autoConsoleGroup.info('This group is contained within an errorBoundary')
-    autoConsoleGroup.info('Errors are caught and logged to the consoleGroup')
+  console.errorBoundary(() => {
+    console.event('TypeError')
+    console.label('errorBoundary')
+    console.showTime(false)
+    console.expand(false)
+    console.info('This group is contained within an errorBoundary')
+    console.info('Errors are caught and logged to the consoleGroup')
     throw new TypeError('Error in errorBoundary')
   }),
   1600,
 )
 
 setTimeout(() => {
-  autoConsoleGroup.label('myLabel') // reset as we changed it above
-  autoConsoleGroup.expand(true) // reset as we changed it above
-  autoConsoleGroup.showTime(true) // reset as we changed it above
-  autoConsoleGroup.count(COUNT)
-  autoConsoleGroup.event('endTimes') // this resets after each group
-  autoConsoleGroup.label('myLabel')
-  autoConsoleGroup.timeEnd('myTimer')
+  console.label('myLabel') // reset as we changed it above
+  console.expand(true) // reset as we changed it above
+  console.showTime(true) // reset as we changed it above
+  console.count(COUNT)
+  console.event('endTimes') // this resets after each group
+  console.label('myLabel')
+  console.timeEnd('myTimer')
 }, 1700)

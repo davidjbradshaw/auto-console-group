@@ -31,6 +31,9 @@ type AutoConsoleGroupOptions = Omit<AutoConsoleGroupDefaultOptions, 'event'>
 
 type Counter = Record<string, number>
 
+// Protect against console being redefined
+const microConsole = console
+
 export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGroup {
   const timers: Counter = {}
   const counters: Counter = {}
@@ -65,7 +68,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       return
     }
 
-    console[isExpanded() ? 'group' : 'groupCollapsed'](
+    microConsole[isExpanded() ? 'group' : 'groupCollapsed'](
       `%c${config.label}%c ${getEvent(config)} %c${groupStartTime()}`,
       NORMAL,
       BOLD,
@@ -73,10 +76,10 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     )
 
     for (const [key, ...args] of consoleQueue) {
-      (console[key as keyof Console] as (...args: any[]) => void)(...args)
+      (microConsole[key as keyof Console] as (...args: any[]) => void)(...args)
     }
 
-    console.groupEnd()
+    microConsole.groupEnd()
     resetConsoleGroup()
   }
 
