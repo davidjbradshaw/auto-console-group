@@ -37,6 +37,8 @@ setTimeout(() => {
   collapsedConsole.count(COLLAPSED)
   collapsedConsole.count(COLLAPSED)
   collapsedConsole.count(COLLAPSED)
+  collapsedConsole.assert(true, 'This is a true test')
+  collapsedConsole.assert(false, 'This is a false test')
   collapsedConsole.event('myEvent')
   collapsedConsole.countReset(COLLAPSED)
 }, 1234)
