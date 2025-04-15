@@ -140,6 +140,11 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
   }
 
   function timeLog(label = DEFAULT, ...args: any[]): void {
+    if (!timers[label]) {
+      pushToConsoleQueue('timeLog', label, ...args)
+      return
+    }
+
     const now = performance.now() - timers[label]
     pushToConsoleQueue(LOG, `${label}: ${now} ms`, ...args)
   }

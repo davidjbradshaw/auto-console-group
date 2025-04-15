@@ -74,4 +74,5 @@ setTimeout(() => {
   console.event('endTimes')
   console.label('myLabel')
   console.timeEnd('myTimer')
+  console.timeLog('myTimer', 'Logged with console.timeLog()')
 }, 7)
