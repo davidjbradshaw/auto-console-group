@@ -1,3 +1,5 @@
+import microConsole from './micro-console'
+
 const { fromEntries, keys } = Object
 
 export type Entry = [string, (...args: unknown[]) => void]
@@ -12,7 +14,7 @@ type Target = {
 
 export const createNonDeferrable = (key: string): ValueEntry => [
   key,
-  console[key as keyof Console] as (...args: unknown[]) => void,
+  microConsole[key as keyof Console] as (...args: unknown[]) => void,
 ]
 
 export const setValue = (target: Target) =>

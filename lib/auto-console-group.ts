@@ -13,6 +13,7 @@ import {
   nonDeferrable,
 } from './defaults'
 import getEvent from './event'
+import microConsole from './micro-console'
 import getStartTime from './time'
 import wrap, { createNonDeferrable, Entry, setValue } from './wrap-object'
 
@@ -30,9 +31,6 @@ type AutoConsoleGroup = Console & {
 type AutoConsoleGroupOptions = Omit<AutoConsoleGroupDefaultOptions, 'event'>
 
 type Counter = Record<string, number>
-
-// Protect against console being redefined
-const microConsole = console
 
 export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGroup {
   const timers: Counter = {}
