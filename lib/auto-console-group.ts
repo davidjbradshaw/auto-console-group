@@ -74,7 +74,13 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     )
 
     for (const [key, ...args] of consoleQueue) {
-      (microConsole[key as keyof Console] as (...args: any[]) => void)(...args)
+      microConsole.assert(
+        key in microConsole,
+        `Unknown console method: ${key}`,
+      )
+
+      // @ts-ignore-next-line
+      if (key in microConsole) microConsole[key](...args)
     }
 
     microConsole.groupEnd()
