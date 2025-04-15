@@ -121,6 +121,11 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       return retValue
     }
 
+  function assert(condition: boolean, ...args: any[]): void {
+    if (condition) return
+    pushToConsoleQueue('assert', condition, ...args)
+  }
+
   function count(label = DEFAULT): void {
     if (counters[label]) {
       counters[label] += 1
@@ -164,6 +169,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     ...wrap(config, setValue(config)),
     ...wrap(console, reflectConsole),
     ...wrap(nonDeferrable, createNonDeferrable),
+    assert,
     count,
     countReset,
     endAutoGroup: autoConsoleGroup,
