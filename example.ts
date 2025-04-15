@@ -82,4 +82,5 @@ setTimeout(() => {
   console.event('endTimes') // this resets after each group
   console.label('myLabel')
   console.timeEnd('myTimer')
+  console.timeLog('foo', 'bar')
 }, 1700)
