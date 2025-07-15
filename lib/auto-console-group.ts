@@ -114,15 +114,16 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
       try {
         retValue = func(...args)
       } catch (error: any) {
-        if (Error.prototype.isPrototypeOf(error)) pushToConsoleQueue(ERROR, error)
-        else throw error
+        if (!Error.prototype.isPrototypeOf(error)) throw error
+        pushToConsoleQueue(ERROR, error)
+        autoConsoleGroup()
       }
 
       return retValue
     }
 
   function assert(condition: boolean, ...args: any[]): void {
-    if (condition) return
+    if (condition === true) return
     pushToConsoleQueue('assert', condition, ...args)
   }
 
