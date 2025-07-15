@@ -24,7 +24,7 @@ Install _auto-console-group_ via npm.
 npm install auto-console-group
 ```
 
-Or download [auto-console-group.js](blob/main/auto-console-group.js)
+Or download [auto-console-group.js](/davidjbradshaw/auto-console-group/blob/main/auto-console-group.js)
 
 ## Setup
 
@@ -44,6 +44,8 @@ consoleGroup.count('Counter')
 // Set the Event in the group heading
 consoleGroup.event('myEvent')
 ```
+
+----
 
 ## Group Heading
 
