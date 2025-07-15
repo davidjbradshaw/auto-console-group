@@ -47,11 +47,11 @@ consoleGroup.event('myEvent')
 
 ## User Guide
 
-* [Group Heading](docs/group_heading.md)
-* [Options](docs/options,md)
-* [Methods](docs/methods.md)
-* [Format Helpers](docs/helpers.md)
-* [Error Boundaries](docs/error_boundaries.md)
+* [Group Heading](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/group_heading.md)
+* [Options](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/options,md)
+* [Methods](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/methods.md)
+* [Format Helpers](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/helpers.md)
+* [Error Boundaries](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/error_boundaries.md)
 
 ---
 [<img align="right" src="https://badge.fury.io/js/auto-console-group.svg" alt="NPM" />](https://badge.fury.io/js/auto-console-group)
