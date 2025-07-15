@@ -47,7 +47,7 @@ consoleGroup.event('myEvent')
 
 ## User Guide
 
-* [Group Heading Format](docs/group_heading.md)
+* [Group Heading](docs/group_heading.md)
 * [Options](docs/options,md)
 * [Methods](docs/methods.md)
 * [Format Helpers](docs/helpers.md)
