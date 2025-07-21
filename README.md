@@ -48,7 +48,7 @@ consoleGroup.event('myEvent')
 ## User Guide
 
 * [Group Heading](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/group_heading.md)
-* [Options](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/options,md)
+* [Options](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/options.md)
 * [Methods](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/methods.md)
 * [Format Helpers](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/helpers.md)
 * [Error Boundaries](https://github.com/davidjbradshaw/auto-console-group/blob/main/docs/error_boundaries.md)
