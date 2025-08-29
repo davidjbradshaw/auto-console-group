@@ -1,7 +1,7 @@
 {
   "name": "auto-console-group",
   "description": "Automagically group console messages",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "author": {
     "name": "David J. Bradshaw",
     "email": "info@iframe-resizer.com"
