@@ -7,7 +7,7 @@ export type AutoConsoleGroupDefaultOptions = {
 }
 
 export const defaultConfig: AutoConsoleGroupDefaultOptions = {
-  expand: true,
+  expand: false,
   defaultEvent: undefined,
   event: undefined,
   label: 'AutoConsoleGroup',
