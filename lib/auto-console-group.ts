@@ -87,19 +87,18 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     resetConsoleGroup()
   }
 
-  function setStartTime(): void {
-    if (startTime === '') startTime = getStartTime()
+  function startGroup(): void {
+    if (startTime !== '') return
+
+    startTime = getStartTime()
+
+    // double microtask to ensure the output is called last
+    queueMicrotask(() => queueMicrotask(autoConsoleGroup))
   }
 
   function setEvent(event: string): void {
-    setStartTime()
+    startGroup()
     config.event = event
-  }
-
-  function startGroup(): void {
-    setStartTime()
-    // double microtask to ensure the output is called last
-    queueMicrotask(() => queueMicrotask(autoConsoleGroup))
   }
 
   function pushToConsoleQueue(key: string, ...args: any[]): void {
@@ -141,7 +140,7 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
   }
 
   function time(label = DEFAULT): void {
-    setStartTime()
+    startGroup()
     timers[label] = performance.now()
   }
 
@@ -180,6 +179,6 @@ export default function (options: AutoConsoleGroupOptions = {}): AutoConsoleGrou
     time,
     timeEnd,
     timeLog,
-    touch: setStartTime,
+    touch: startGroup,
   }
 }
