@@ -1,5 +1,5 @@
 /*!
- *  @module      auto-console-group v1.2.13
+ *  @module      auto-console-group v1.3.0
  *
  *  @description Automagically group console logs in the browser console.
  *
