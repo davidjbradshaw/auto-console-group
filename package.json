@@ -1,7 +1,7 @@
 {
   "name": "auto-console-group",
   "description": "Automagically group console messages",
-  "version": "1.2.12",
+  "version": "1.2.13",
   "author": {
     "name": "David J. Bradshaw",
     "email": "info@iframe-resizer.com"
@@ -27,7 +27,7 @@
     "dev": "vite",
     "build": "tsc && vite build --mode production",
     "preview": "vite preview",
-    "prepublishOnly": "npm i && npm run test && npm run build && rm dist/example.d.ts",
+    "prepublishOnly": "git pull && npm i && npm run test && npm run build && rm dist/example.d.ts",
     "pretest": "eslint lib/*.ts *.js *.ts --fix && npm run build",
     "postpublish": "git add -A && git commit -m \"v$npm_package_version\" && git push && git tag v$npm_package_version && git push --tags",
     "test": "node ./test.js"
